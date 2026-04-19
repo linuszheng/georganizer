@@ -261,51 +261,82 @@ function toggleMap() {
   }
 }
 
-// Get set of buildings that have classes for the current dept
-function getDeptBuildings() {
+// Get set of buildings that have classes matching current dept + level filters
+function getMatchingBuildings() {
   const dept = document.getElementById('dept').value;
+  const showLower = document.getElementById('lvl-lower').checked;
+  const showUpper = document.getElementById('lvl-upper').checked;
+  const showGrad = document.getElementById('lvl-grad').checked;
   const result = new Set();
-  if (dept) {
-    for (const c of allCourses) {
-      if (c.dept === dept) result.add(c.building);
-    }
+  const showTermW = document.getElementById('term-w').checked;
+  const showTermF = document.getElementById('term-f').checked;
+  const showTermS = document.getElementById('term-s').checked;
+  const showTermN = document.getElementById('term-n').checked;
+  for (const c of allCourses) {
+    if (dept && c.dept !== dept) continue;
+    if (c.level === 'lower' && !showLower) continue;
+    if (c.level === 'upper' && !showUpper) continue;
+    if (c.level === 'grad' && !showGrad) continue;
+    if (c.term === 'w' && !showTermW) continue;
+    if (c.term === 'f' && !showTermF) continue;
+    if (c.term === 's' && !showTermS) continue;
+    if (c.term === 'n' && !showTermN) continue;
+    result.add(c.building);
   }
   return result;
 }
 
+function getMarkerSpan(m) {
+  if (!m.marker) return null;
+  const icon = m.marker._icon;
+  return icon ? icon.querySelector('span') : null;
+}
+
 function updateMarkerColors() {
-  const deptBuildings = getDeptBuildings();
+  const matching = getMatchingBuildings();
   const building = document.getElementById('building').value;
   const dept = document.getElementById('dept').value;
-  const allMode = !dept && !building; // All Depts + All Buildings
+  const allMode = !dept && !building;
   for (const m of buildingMarkers) {
-    if (!m.label || !m.marker) continue;
-    const icon = m.marker._icon;
-    if (!icon) continue;
-    const span = icon.querySelector('span');
+    if (!m.label) continue;
+    const span = getMarkerSpan(m);
     if (!span) continue;
     span.classList.remove('bldg-green', 'bldg-orange');
     if (allMode) {
-      // All/All: default green, click to toggle orange
-      if (greenBuildings.has(m.label)) {
-        span.classList.add('bldg-orange');
-      } else {
-        span.classList.add('bldg-green');
+      if (matching.has(m.label)) {
+        span.classList.add(greenBuildings.has(m.label) ? 'bldg-orange' : 'bldg-green');
       }
     } else if (building) {
-      if (m.label === building) {
-        if (greenBuildings.has(m.label)) {
-          span.classList.add('bldg-green');
-        } else {
-          span.classList.add('bldg-orange');
-        }
+      if (m.label === building && matching.has(m.label)) {
+        span.classList.add(greenBuildings.has(m.label) ? 'bldg-green' : 'bldg-orange');
       }
-    } else if (deptBuildings.has(m.label)) {
-      if (greenBuildings.has(m.label)) {
-        span.classList.add('bldg-green');
-      } else {
-        span.classList.add('bldg-orange');
-      }
+    } else if (matching.has(m.label)) {
+      span.classList.add(greenBuildings.has(m.label) ? 'bldg-green' : 'bldg-orange');
+    }
+  }
+}
+
+// Incremental update for level checkbox changes:
+// - When enabling a level: black labels may become colored if they now have matching classes
+// - When disabling a level: colored labels may become black if no matching classes remain
+function updateMarkerColorsForLevelChange() {
+  const matching = getMatchingBuildings();
+  const building = document.getElementById('building').value;
+  const dept = document.getElementById('dept').value;
+  const allMode = !dept && !building;
+  for (const m of buildingMarkers) {
+    if (!m.label) continue;
+    const span = getMarkerSpan(m);
+    if (!span) continue;
+    const isGreen = span.classList.contains('bldg-green');
+    const isOrange = span.classList.contains('bldg-orange');
+    const isColored = isGreen || isOrange;
+    const shouldBeColored = matching.has(m.label) && (allMode || (building && m.label === building) || !building);
+    if (isColored && !shouldBeColored) {
+      span.classList.remove('bldg-green', 'bldg-orange');
+      greenBuildings.delete(m.label);
+    } else if (!isColored && shouldBeColored) {
+      span.classList.add(allMode ? 'bldg-green' : 'bldg-orange');
     }
   }
 }
@@ -337,7 +368,7 @@ function initLeafletMap() {
     // Click to toggle green<->orange (only for orange labels)
     marker.on('click', (e) => {
       L.DomEvent.stopPropagation(e);
-      const deptBuildings = getDeptBuildings();
+      const deptBuildings = getMatchingBuildings();
       const building = document.getElementById('building').value;
       const dept = document.getElementById('dept').value;
       const allMode = !dept && !building;
@@ -391,6 +422,7 @@ const PALETTE = [
 ];
 let colorMap = {}; // key -> { bg, border }
 let deptNames = {}; // abbrev -> full name, e.g. "C S" -> "Computer Science"
+let deptCounts = {}; // full name -> count of grad students
 let buildingNames = {}; // abbrev -> { name, campus }
 let catalogEntries = []; // { label, name, file }
 
@@ -560,7 +592,11 @@ function populateDepts(courses) {
   for (const d of depts) {
     const opt = document.createElement('option');
     opt.value = d;
-    opt.textContent = deptNames[d] ? `${d} - ${deptNames[d]}` : d;
+    const fullName = deptNames[d] || '';
+    const count = deptCounts[d];
+    let text = fullName ? `${d} - ${fullName}` : d;
+    if (count != null) text += ` (${count})`;
+    opt.textContent = text;
     sel.appendChild(opt);
   }
 }
@@ -614,7 +650,7 @@ function getFiltered() {
   const allMode = !dept && !building;
   if (allMode && greenBuildings.size === 0) return [];
 
-  const deptBldgs = getDeptBuildings();
+  const matchingBldgs = getMatchingBuildings();
   const filtered = allCourses.filter(c => {
     if (!showCancelled && c.status.toLowerCase() === 'cancelled') return false;
     if (dept && c.dept !== dept) return false;
@@ -947,14 +983,14 @@ document.getElementById('building').addEventListener('change', () => {
   updateMarkerColors();
 });
 document.getElementById('floor').addEventListener('change', render);
-document.getElementById('lvl-lower').addEventListener('change', render);
-document.getElementById('lvl-upper').addEventListener('change', render);
-document.getElementById('lvl-grad').addEventListener('change', render);
+document.getElementById('lvl-lower').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
+document.getElementById('lvl-upper').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
+document.getElementById('lvl-grad').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
 document.getElementById('show-cancelled').addEventListener('change', render);
-document.getElementById('term-w').addEventListener('change', render);
-document.getElementById('term-f').addEventListener('change', render);
-document.getElementById('term-s').addEventListener('change', render);
-document.getElementById('term-n').addEventListener('change', render);
+document.getElementById('term-w').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
+document.getElementById('term-f').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
+document.getElementById('term-s').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
+document.getElementById('term-n').addEventListener('change', () => { updateMarkerColorsForLevelChange(); render(); });
 document.getElementById('colorMode').addEventListener('change', render);
 document.getElementById('btn-week').addEventListener('click', () => {
   currentView = 'week';
@@ -1000,7 +1036,12 @@ function parseCatalog(text) {
     }
     if (cur.trim()) vals.push(cur.trim().replace(/^"|"$/g, ''));
     if (label && vals.length >= 1) {
-      entries.push({ label, name: vals[0], file: `courses/${vals[0]}.csv` });
+      entries.push({
+        label,
+        name: vals[0],
+        file: `courses/${vals[0]}.csv`,
+        countsFile: vals.length >= 2 ? `courses/${vals[1]}.csv` : null,
+      });
     }
   }
   return entries;
@@ -1017,13 +1058,22 @@ function populateSemesters() {
   }
 }
 
-function loadCourses(filename) {
+function loadCourses(filename, countsFile) {
   const container = document.getElementById('scheduleContainer');
   container.innerHTML = '<div class="no-data">Loading...</div>';
-  fetch(filename).then(r => {
-    if (!r.ok) throw new Error(`Could not load ${filename}`);
-    return r.text();
-  }).then(csvText => {
+  const fetches = [fetch(filename).then(r => { if (!r.ok) throw new Error(`Could not load ${filename}`); return r.text(); })];
+  if (countsFile) fetches.push(fetch(countsFile).then(r => r.ok ? r.text() : '').catch(() => ''));
+  else fetches.push(Promise.resolve(''));
+  Promise.all(fetches).then(([csvText, countsText]) => {
+    // Parse dept counts (by acronym, summing multiple entries)
+    deptCounts = {};
+    for (const line of countsText.split('\n')) {
+      const m = line.match(/^(.+?),\s*(\d+)\s*$/);
+      if (m) {
+        const abbr = m[1].trim();
+        deptCounts[abbr] = (deptCounts[abbr] || 0) + parseInt(m[2]);
+      }
+    }
     const raw = parseCSV(csvText);
     allCourses = processCourses(raw);
     document.getElementById('dept').value = '';
@@ -1067,7 +1117,7 @@ document.getElementById('semester').addEventListener('change', () => {
     const container = document.getElementById('scheduleContainer');
     container.innerHTML = '<div class="no-data">Select a department or building to view the schedule.</div>';
     document.querySelector('.subtitle').textContent = 'UT Austin ' + selected.label;
-    loadCourses(selected.file);
+    loadCourses(selected.file, selected.countsFile);
   }
 });
 
@@ -1102,7 +1152,7 @@ Promise.all([
     // Load first semester
     if (catalogEntries.length > 0) {
       document.querySelector('.subtitle').textContent = 'UT Austin ' + catalogEntries[0].label;
-      loadCourses(catalogEntries[0].file);
+      loadCourses(catalogEntries[0].file, catalogEntries[0].countsFile);
     }
   })
   .catch(err => {

@@ -8,7 +8,7 @@ import csv
 import os
 
 # Load catalog options from courses/catalog
-# Format: "Label": "name", "url"
+# Format: "Label": "name", "counts-file", "url"
 catalogs = []
 with open("courses/catalog") as f:
     for line in f:
@@ -19,8 +19,8 @@ with open("courses/catalog") as f:
         label_part, _, rest = line.partition(":")
         parts = [p.strip().strip('"') for p in rest.split(",") if p.strip().strip('"')]
         label = label_part.strip().strip('"')
-        if label and len(parts) >= 2:
-            catalogs.append({"label": label, "name": parts[0], "url": parts[1]})
+        if label and len(parts) >= 3:
+            catalogs.append({"label": label, "name": parts[0], "url": parts[2]})
 
 if not catalogs:
     print("No catalogs found in courses/catalog")
