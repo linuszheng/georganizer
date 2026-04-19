@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Schedule Viewer</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; }
+
+  .layout { display: flex; height: 100vh; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 280px; min-width: 280px; background: #1a1a2e; color: #eee;
+    padding: 24px 20px; display: flex; flex-direction: column; gap: 20px;
+    overflow-y: auto;
+  }
+  .sidebar h1 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .sidebar .subtitle { font-size: 12px; color: #888; }
+  .filter-group label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 6px; }
+  .filter-group select {
+    width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid #333;
+    background: #16213e; color: #eee; font-size: 14px; cursor: pointer;
+  }
+  .filter-group select:focus { outline: none; border-color: #e94560; }
+  .checkbox-group { display: flex; flex-direction: column; gap: 6px; }
+  .checkbox-group label {
+    font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer;
+    text-transform: none; letter-spacing: 0; color: #eee;
+  }
+  .checkbox-group input[type="checkbox"] { accent-color: #e94560; width: 16px; height: 16px; }
+  .stats { font-size: 12px; color: #888; margin-top: auto; padding-top: 16px; border-top: 1px solid #333; }
+  .stats span { color: #e94560; font-weight: 600; }
+
+  /* Main area */
+  .main { flex: 1; min-width: 0; overflow: auto; padding: 20px; display: flex; flex-direction: column; transition: flex 0.25s; }
+  .schedule-container { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+  /* Sticky header row outside the scrollable area */
+  .schedule-header {
+    display: grid;
+    flex-shrink: 0;
+  }
+  .schedule-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .schedule-body-grid {
+    display: grid;
+    position: relative;
+  }
+
+  .schedule-header, .schedule-body-grid { background: #fff; }
+
+  /* Header row */
+  .day-header {
+    background: #1a1a2e; color: #fff; text-align: center;
+    padding: 10px 4px; font-weight: 600; font-size: 14px;
+    border-right: 1px solid #333;
+  }
+  .day-header:last-child { border-right: none; }
+  .time-header { background: #1a1a2e; }
+
+  /* Time column + day columns */
+  .time-col {
+    grid-column: 1; background: #fafafa; border-right: 1px solid #ddd;
+    position: relative;
+  }
+  .time-label {
+    position: absolute; right: 8px; font-size: 11px; color: #888;
+    transform: translateY(-50%); white-space: nowrap;
+  }
+
+  .day-col {
+    position: relative; border-right: 2px solid #ccc; min-height: 60px;
+  }
+  .day-col:last-child { border-right: none; }
+
+  .hour-line {
+    position: absolute; left: 0; right: 0; border-top: 1px solid #eee; pointer-events: none;
+  }
+  .hour-line.on-hour { border-top: 1px solid #ddd; }
+
+  /* Class blocks */
+  .class-block {
+    position: absolute;
+    border-radius: 4px; padding: 3px 5px;
+    font-size: 11px; line-height: 1.3; overflow: hidden;
+    cursor: default; border-left: 3px solid;
+    transition: box-shadow 0.15s;
+    box-sizing: border-box;
+  }
+  .class-block:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.18); z-index: 10; }
+  .class-block .course-name { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .class-block .course-detail { color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .no-data { text-align: center; padding: 60px 20px; color: #999; font-size: 16px; }
+
+  /* Map panel */
+  .map-panel {
+    width: 0; min-width: 0; overflow: hidden; background: #f5f5f5;
+    display: flex; flex-direction: column; transition: width 0.25s, min-width 0.25s;
+    border-left: 1px solid #ddd;
+  }
+  .map-panel.open { width: 45vw; min-width: 350px; }
+  .map-header {
+    background: #1a1a2e; color: #fff; padding: 10px 14px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 14px; font-weight: 600; flex-shrink: 0;
+  }
+  #mapToggle {
+    position: fixed; right: 16px; bottom: 16px; z-index: 50;
+    background: #1a1a2e; color: #fff; border: none; border-radius: 8px;
+    padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  #mapToggle:hover { background: #e94560; }
+  #mapToggle.hidden { display: none; }
+  .bldg-label {
+    background: none !important; border: none !important;
+    overflow: visible !important; width: 0 !important; height: 0 !important;
+  }
+  .bldg-label span {
+    display: block; position: absolute;
+    transform: translate(-50%, -50%);
+    background: #1a1a2e; color: #fff; font-size: 9px; font-weight: 700;
+    padding: 1px 4px; border-radius: 3px; border: 1px solid #555;
+    white-space: nowrap; text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+  .bldg-label span.bldg-orange {
+    background: #e65100; border-color: #bf360c;
+  }
+  .bldg-label span.bldg-green {
+    background: #2e7d32; border-color: #1b5e20;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    display: none; position: fixed; background: #222; color: #fff;
+    padding: 10px 14px; border-radius: 6px; font-size: 12px; line-height: 1.5;
+    z-index: 100; pointer-events: none; max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <div>
+      <h1>Schedule Viewer</h1>
+      <div class="subtitle">UT Austin Fall 2026</div>
+    </div>
+    <div class="filter-group">
+      <label>Semester</label>
+      <select id="semester"></select>
+    </div>
+    <div class="filter-group">
+      <label>View</label>
+      <div style="display:flex;gap:0;border-radius:6px;overflow:hidden;border:1px solid #333;">
+        <button class="view-btn active" id="btn-week" style="flex:1;padding:6px 0;font-size:13px;cursor:pointer;border:none;background:#e94560;color:#fff;font-weight:600;">Week</button>
+        <button class="view-btn" id="btn-day" style="flex:1;padding:6px 0;font-size:13px;cursor:pointer;border:none;background:#16213e;color:#eee;font-weight:400;">Day</button>
+      </div>
+      <select id="daySelect" style="margin-top:6px;display:none;">
+        <option value="0">Monday</option>
+        <option value="1">Tuesday</option>
+        <option value="2">Wednesday</option>
+        <option value="3">Thursday</option>
+        <option value="4">Friday</option>
+      </select>
+    </div>
+    <div class="filter-group" id="termFilter" style="display:none;">
+      <label>Term</label>
+      <div class="checkbox-group" id="termCheckboxes">
+        <label><input type="checkbox" id="term-w" checked> Whole Term</label>
+        <label><input type="checkbox" id="term-f" checked> First Term</label>
+        <label><input type="checkbox" id="term-s" checked> Second Term</label>
+        <label><input type="checkbox" id="term-n" checked> Nine Week</label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>Department</label>
+      <select id="dept"><option value="">All Departments</option></select>
+    </div>
+    <div class="filter-group">
+      <label>Building</label>
+      <select id="building"><option value="">All Buildings</option></select>
+    </div>
+    <div class="filter-group">
+      <label>Floor</label>
+      <select id="floor"><option value="">All Floors</option></select>
+    </div>
+    <div class="filter-group">
+      <label>Class Level</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="lvl-lower" checked> Lower Division (100-299)</label>
+        <label><input type="checkbox" id="lvl-upper" checked> Upper Division (300-499)</label>
+        <label><input type="checkbox" id="lvl-grad" checked> Graduate (500+)</label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>Color By</label>
+      <select id="colorMode">
+        <option value="level">Class Level</option>
+        <option value="building">Building</option>
+        <option value="dept">Department</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Other</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="show-cancelled"> Show Cancelled</label>
+      </div>
+    </div>
+    <div id="legend" style="display:none;">
+      <label id="legendLabel" style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:6px;">Legend</label>
+      <div id="legendItems" style="display:flex;flex-direction:column;gap:4px;font-size:12px;"></div>
+    </div>
+    <div class="stats">
+      Showing <span id="count">0</span> sections
+    </div>
+  </div>
+  <div class="main">
+    <div class="schedule-container" id="scheduleContainer">
+      <div class="no-data" id="noData">Select a building to view its schedule.</div>
+    </div>
+  </div>
+  <button id="mapToggle" onclick="toggleMap()">Map</button>
+  <div class="map-panel" id="mapPanel">
+    <div class="map-header">
+      <span>Campus Map</span>
+      <button onclick="toggleMap()" style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:0 4px;">&times;</button>
+    </div>
+    <div id="mapContainer" style="flex:1;position:relative;">
+      <pre id="coordLog" style="display:none;position:absolute;bottom:8px;right:8px;z-index:1000;background:rgba(0,0,0,0.75);color:#0f0;font-size:11px;padding:6px 10px;margin:0;max-height:150px;overflow-y:auto;white-space:pre;border-radius:4px;pointer-events:none;"></pre>
+    </div>
+  </div>
+</div>
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+let leafletMap = null;
+let buildingMarkers = []; // { x, y, label } (x=lat, y=lng for leaflet)
+let mapMarkerElements = {}; // label -> span element
+let greenBuildings = new Set(); // buildings included by clicking (orange -> green toggle)
+
+function toggleMap() {
+  const panel = document.getElementById('mapPanel');
+  const btn = document.getElementById('mapToggle');
+  panel.classList.toggle('open');
+  btn.classList.toggle('hidden', panel.classList.contains('open'));
+  if (panel.classList.contains('open')) {
+    setTimeout(() => {
+      if (!leafletMap) initLeafletMap();
+      else leafletMap.invalidateSize();
+    }, 300);
+  }
+}
+
+// Get set of buildings that have classes for the current dept
+function getDeptBuildings() {
+  const dept = document.getElementById('dept').value;
+  const result = new Set();
+  if (dept) {
+    for (const c of allCourses) {
+      if (c.dept === dept) result.add(c.building);
+    }
+  }
+  return result;
+}
+
+function updateMarkerColors() {
+  const deptBuildings = getDeptBuildings();
+  const building = document.getElementById('building').value;
+  const dept = document.getElementById('dept').value;
+  const allMode = !dept && !building; // All Depts + All Buildings
+  for (const m of buildingMarkers) {
+    if (!m.label || !m.marker) continue;
+    const icon = m.marker._icon;
+    if (!icon) continue;
+    const span = icon.querySelector('span');
+    if (!span) continue;
+    span.classList.remove('bldg-green', 'bldg-orange');
+    if (allMode) {
+      // All/All: default green, click to toggle orange
+      if (greenBuildings.has(m.label)) {
+        span.classList.add('bldg-orange');
+      } else {
+        span.classList.add('bldg-green');
+      }
+    } else if (building) {
+      if (m.label === building) {
+        if (greenBuildings.has(m.label)) {
+          span.classList.add('bldg-green');
+        } else {
+          span.classList.add('bldg-orange');
+        }
+      }
+    } else if (deptBuildings.has(m.label)) {
+      if (greenBuildings.has(m.label)) {
+        span.classList.add('bldg-green');
+      } else {
+        span.classList.add('bldg-orange');
+      }
+    }
+  }
+}
+
+function initLeafletMap() {
+  // UT Austin main campus center
+  leafletMap = L.map('mapContainer', { zoomControl: true, zoomSnap: 0.5, zoomDelta: 0.5, wheelPxPerZoomLevel: 120 }).setView([30.2849, -97.7350], 16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19,
+  }).addTo(leafletMap);
+
+  // Add markers from locs.txt
+  for (const m of buildingMarkers) {
+    if (!m.label) continue;
+    const icon = L.divIcon({
+      className: 'bldg-label',
+      html: `<span>${m.label}</span>`,
+      iconSize: [0, 0],
+      iconAnchor: [0, 0],
+    });
+    const marker = L.marker([m.x, m.y], { icon, interactive: true }).addTo(leafletMap);
+    const info = buildingNames[m.label];
+    if (info) {
+      marker.bindTooltip(info.name, { direction: 'top', offset: [0, -10] });
+    }
+    // Store marker reference for color updates
+    m.marker = marker;
+    // Click to toggle green<->orange (only for orange labels)
+    marker.on('click', (e) => {
+      L.DomEvent.stopPropagation(e);
+      const deptBuildings = getDeptBuildings();
+      const building = document.getElementById('building').value;
+      const dept = document.getElementById('dept').value;
+      const allMode = !dept && !building;
+      const isColored = allMode || (building && m.label === building) || deptBuildings.has(m.label);
+      if (!isColored && !greenBuildings.has(m.label)) return; // ignore black labels
+      if (greenBuildings.has(m.label)) {
+        greenBuildings.delete(m.label);
+      } else {
+        greenBuildings.add(m.label);
+      }
+      updateMarkerColors();
+      render();
+    });
+  }
+
+  updateMarkerColors();
+
+  // Show lat/lng on mouse move
+  const log = document.getElementById('coordLog');
+  log.style.display = 'block';
+  log.textContent = '';
+  leafletMap.on('mousemove', (e) => {
+    log.textContent = `${Math.round(e.latlng.lat * 1000000) / 1000000}, ${Math.round(e.latlng.lng * 1000000) / 1000000}`;
+  });
+  leafletMap.on('mouseout', () => { log.textContent = ''; });
+  leafletMap.on('click', (e) => {
+    const text = `(${Math.round(e.latlng.lat * 1000000) / 1000000}, ${Math.round(e.latlng.lng * 1000000) / 1000000})`;
+    navigator.clipboard.writeText(text);
+    log.textContent = text + ' (copied)';
+  });
+}
+
+const DAY_MAP = { M: 0, T: 1, W: 2, TH: 3, F: 4, S: 5 };
+const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const PIXELS_PER_MINUTE = 1.8;
+
+// Color palette for multi-value coloring (building, department, etc.)
+const PALETTE = [
+  { bg: '#e3f2fd', border: '#1976d2' },
+  { bg: '#fce4ec', border: '#c62828' },
+  { bg: '#e8f5e9', border: '#2e7d32' },
+  { bg: '#fff3e0', border: '#e65100' },
+  { bg: '#f3e5f5', border: '#7b1fa2' },
+  { bg: '#e0f7fa', border: '#00838f' },
+  { bg: '#fff9c4', border: '#f9a825' },
+  { bg: '#fbe9e7', border: '#bf360c' },
+  { bg: '#e8eaf6', border: '#283593' },
+  { bg: '#e0f2f1', border: '#00695c' },
+  { bg: '#f1f8e9', border: '#558b2f' },
+  { bg: '#ede7f6', border: '#4527a0' },
+];
+let colorMap = {}; // key -> { bg, border }
+let deptNames = {}; // abbrev -> full name, e.g. "C S" -> "Computer Science"
+let buildingNames = {}; // abbrev -> { name, campus }
+let catalogEntries = []; // { label, name, file }
+
+let allCourses = [];
+let currentView = 'week'; // 'week' or 'day'
+
+// Parse CSV
+function parseCSV(text) {
+  const lines = text.split('\n');
+  if (lines.length < 2) return [];
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const vals = parseCSVLine(line);
+    const obj = {};
+    headers.forEach((h, idx) => obj[h] = vals[idx] || '');
+    rows.push(obj);
+  }
+  return rows;
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuotes) {
+      if (c === '"' && line[i + 1] === '"') { current += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { current += c; }
+    } else {
+      if (c === '"') { inQuotes = true; }
+      else if (c === ',') { result.push(current.trim()); current = ''; }
+      else { current += c; }
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+// Parse "11:00 a.m.-12:30 p.m." -> { start: minutes, end: minutes }
+function parseHour(hourStr) {
+  const m = hourStr.match(/(\d{1,2}):(\d{2})\s*(a\.m\.|p\.m\.)\s*-\s*(\d{1,2}):(\d{2})\s*(a\.m\.|p\.m\.)/i);
+  if (!m) return null;
+  let sh = parseInt(m[1]), sm = parseInt(m[2]);
+  let eh = parseInt(m[4]), em = parseInt(m[5]);
+  if (m[3].toLowerCase().startsWith('p') && sh !== 12) sh += 12;
+  if (m[3].toLowerCase().startsWith('a') && sh === 12) sh = 0;
+  if (m[6].toLowerCase().startsWith('p') && eh !== 12) eh += 12;
+  if (m[6].toLowerCase().startsWith('a') && eh === 12) eh = 0;
+  return { start: sh * 60 + sm, end: eh * 60 + em };
+}
+
+// Parse days "MWF" or "TTH" -> array of day indices
+function parseDays(dayStr) {
+  const days = [];
+  let i = 0;
+  const s = dayStr.toUpperCase().replace(/\s/g, '');
+  while (i < s.length) {
+    if (s[i] === 'T' && s[i + 1] === 'H') { days.push(3); i += 2; }
+    else if (s[i] === 'S') { days.push(5); i++; }
+    else if (DAY_MAP[s[i]] !== undefined) { days.push(DAY_MAP[s[i]]); i++; }
+    else { i++; }
+  }
+  return days.filter(d => d < 5); // only Mon-Fri
+}
+
+// Extract building and floor from room like "UTC 1.118"
+function parseRoom(room) {
+  const parts = room.trim().split(/\s+/);
+  if (parts.length < 2) return { building: parts[0] || '', floor: '' };
+  const building = parts[0];
+  const roomNum = parts.slice(1).join(' ');
+  // Only extract floor if room number has a dot (e.g. "1.118" = floor 1)
+  const floorMatch = roomNum.match(/^(\d+)\./);
+  return { building, floor: floorMatch ? floorMatch[1] : '' };
+}
+
+function getCourseLevel(row) {
+  const l = (row.level || '').trim().toLowerCase();
+  if (l === 'lower') return 'lower';
+  if (l === 'upper') return 'upper';
+  if (l === 'graduate') return 'grad';
+  return 'unknown';
+}
+
+// Process raw CSV rows into structured data
+function processCourses(rows) {
+  const courses = [];
+  for (const row of rows) {
+    if (!row.room || !row.hour || !row.days) continue;
+    // A row can have multiple room/day/hour entries (split by spaces for multi-line)
+    // The scraper joins with spaces, but multi-meeting sections have multiple spans
+    // Each room/days/hour is one meeting. They are space-separated from the scraper.
+    // Actually looking at the scraper: " ".join(s.strip() for s in cells[X].xpath(".//span/text()"))
+    // So for multi-meeting sections, each span is a separate meeting.
+    // We need to handle: days="MWF TTH", hour="9:00 a.m.-10:00 a.m. 2:00 p.m.-3:00 p.m.", room="UTC 1.118 UTC 2.112"
+    // Let's split by matching patterns.
+
+    const hourMatches = row.hour.match(/\d{1,2}:\d{2}\s*[ap]\.m\.\s*-\s*\d{1,2}:\d{2}\s*[ap]\.m\./gi) || [];
+    // For days, each meeting's days block is a contiguous set of day letters
+    const dayMatches = row.days.match(/[MTWTHFS]+/gi) || [];
+    // For rooms, split by known pattern: WORD NUM.NUM or WORD NUM
+    const roomMatches = row.room.match(/[A-Z][A-Z0-9]*\s+\d+\S*/gi) || [];
+
+    const meetingCount = Math.max(hourMatches.length, 1);
+
+    for (let i = 0; i < meetingCount; i++) {
+      const hourStr = hourMatches[i];
+      if (!hourStr) continue;
+      const time = parseHour(hourStr);
+      if (!time) continue;
+
+      const dayStr = dayMatches[i] || dayMatches[0] || row.days;
+      const roomStr = roomMatches[i] || roomMatches[0] || row.room;
+      const { building, floor } = parseRoom(roomStr);
+      if (!building) continue;
+
+      const days = parseDays(dayStr);
+      const level = getCourseLevel(row);
+
+      // Department is everything before the first double-space or space+lowercase (e.g. "C S  101..." or "A I w380H...")
+      const deptMatch = row.course.trim().match(/^(.+?)(?:\s{2,}|\s(?=[a-z]))/);
+      const dept = deptMatch ? deptMatch[1].trim() : row.course.trim().split(/\s+/)[0] || '';
+
+      // Extract term prefix (w/s/f/n) from course number after dept
+      // e.g. "A I w380H ..." -> 'w', "C S  313E ..." -> '' (no prefix)
+      const afterDept = row.course.trim().slice(deptMatch ? deptMatch[0].length : 0);
+      const termMatch = afterDept.match(/^([wsfn])/i);
+      const term = termMatch ? termMatch[1].toLowerCase() : '';
+
+      // Clean course name: remove the term prefix letter from display
+      let courseName = row.course;
+      if (termMatch) {
+        const idx = row.course.indexOf(afterDept);
+        courseName = row.course.slice(0, idx) + afterDept.slice(1);
+      }
+
+      courses.push({
+        course: courseName,
+        unique: row.unique,
+        days,
+        time,
+        room: roomStr,
+        building,
+        floor,
+        level,
+        dept,
+        term,
+        instructor: row.instructor,
+        status: row.status,
+        instruction_mode: row.instruction_mode,
+      });
+    }
+  }
+  return courses;
+}
+
+// Populate department dropdown
+function populateDepts(courses) {
+  const depts = [...new Set(courses.map(c => c.dept))].filter(Boolean).sort();
+  const sel = document.getElementById('dept');
+  sel.innerHTML = '<option value="">All Departments</option>';
+  for (const d of depts) {
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = deptNames[d] ? `${d} - ${deptNames[d]}` : d;
+    sel.appendChild(opt);
+  }
+}
+
+// Populate building dropdown, optionally scoped to a department
+function populateBuildings(courses, dept) {
+  const pool = dept ? courses.filter(c => c.dept === dept) : courses;
+  const buildings = [...new Set(pool.map(c => c.building))].sort();
+  const sel = document.getElementById('building');
+  const prev = sel.value;
+  sel.innerHTML = '<option value="">All Buildings</option>';
+  for (const b of buildings) {
+    const opt = document.createElement('option');
+    opt.value = b;
+    const info = buildingNames[b];
+    opt.textContent = info ? `${b} (${info.name} @ ${info.campus})` : b;
+    sel.appendChild(opt);
+  }
+  // Restore previous selection if still valid
+  if (buildings.includes(prev)) sel.value = prev;
+}
+
+// Populate floor dropdown based on selected building
+function populateFloors(courses, building) {
+  const sel = document.getElementById('floor');
+  sel.innerHTML = '<option value="">All Floors</option>';
+  if (!building) return;
+  const floors = [...new Set(courses.filter(c => c.building === building).map(c => c.floor))].filter(Boolean).sort((a, b) => a - b);
+  for (const f of floors) {
+    const opt = document.createElement('option');
+    opt.value = f; opt.textContent = 'Floor ' + f;
+    sel.appendChild(opt);
+  }
+}
+
+// Filter courses
+function getFiltered() {
+  const dept = document.getElementById('dept').value;
+  const building = document.getElementById('building').value;
+  const floor = document.getElementById('floor').value;
+  const showLower = document.getElementById('lvl-lower').checked;
+  const showUpper = document.getElementById('lvl-upper').checked;
+  const showGrad = document.getElementById('lvl-grad').checked;
+
+  const showCancelled = document.getElementById('show-cancelled').checked;
+  const showTermW = document.getElementById('term-w').checked;
+  const showTermF = document.getElementById('term-f').checked;
+  const showTermS = document.getElementById('term-s').checked;
+  const showTermN = document.getElementById('term-n').checked;
+
+  const allMode = !dept && !building;
+  if (allMode && greenBuildings.size === 0) return [];
+
+  const deptBldgs = getDeptBuildings();
+  const filtered = allCourses.filter(c => {
+    if (!showCancelled && c.status.toLowerCase() === 'cancelled') return false;
+    if (dept && c.dept !== dept) return false;
+    if (building && c.building !== building) return false;
+    if (floor && c.floor !== floor) return false;
+    if (c.level === 'lower' && !showLower) return false;
+    if (c.level === 'upper' && !showUpper) return false;
+    if (c.level === 'grad' && !showGrad) return false;
+    if (c.term === 'w' && !showTermW) return false;
+    if (c.term === 'f' && !showTermF) return false;
+    if (c.term === 's' && !showTermS) return false;
+    if (c.term === 'n' && !showTermN) return false;
+    if (allMode) {
+      if (!greenBuildings.has(c.building)) return false; // in all mode, greenBuildings = toggled to orange (shown)
+    } else {
+      if (greenBuildings.has(c.building)) return false; // in dept/building mode, greenBuildings = excluded
+    }
+    return true;
+  });
+
+  // Merge sections that are identical except for unique number
+  const mergeMap = new Map();
+  for (const c of filtered) {
+    const key = [c.course, c.days.join(','), c.time.start, c.time.end, c.room, c.instructor, c.level, c.status, c.instruction_mode].join('|');
+    if (mergeMap.has(key)) {
+      mergeMap.get(key).uniques.push(c.unique);
+    } else {
+      mergeMap.set(key, { ...c, uniques: [c.unique] });
+    }
+  }
+  return [...mergeMap.values()];
+}
+
+// Render schedule
+function render() {
+  const container = document.getElementById('scheduleContainer');
+  const oldScrollBody = container.querySelector('.schedule-body');
+  const savedScroll = oldScrollBody ? oldScrollBody.scrollTop : 0;
+  const dept = document.getElementById('dept').value;
+  const building = document.getElementById('building').value;
+
+  if (!building && !dept && greenBuildings.size === 0) {
+    container.innerHTML = '<div class="no-data">Select a department or building, or click buildings on the map.</div>';
+    document.getElementById('count').textContent = '0';
+    document.getElementById('legend').style.display = 'none';
+    return;
+  }
+
+  const filtered = getFiltered();
+  document.getElementById('count').textContent = filtered.length;
+
+  // Color mode
+  const colorMode = document.getElementById('colorMode').value;
+  colorMap = {};
+  const LEVEL_COLORS = {
+    lower: { bg: '#e3f2fd', border: '#1976d2' },
+    upper: { bg: '#fce4ec', border: '#c62828' },
+    grad:  { bg: '#e8f5e9', border: '#2e7d32' },
+  };
+
+  let legendEntries = []; // { key, label, color }
+  if (colorMode === 'level') {
+    colorMap = LEVEL_COLORS;
+    legendEntries = [
+      { key: 'lower', label: 'Lower Division', color: LEVEL_COLORS.lower },
+      { key: 'upper', label: 'Upper Division', color: LEVEL_COLORS.upper },
+      { key: 'grad', label: 'Graduate', color: LEVEL_COLORS.grad },
+    ];
+  } else if (colorMode === 'building') {
+    const keys = [...new Set(filtered.map(c => c.building))].sort();
+    keys.forEach((k, i) => { colorMap[k] = PALETTE[i % PALETTE.length]; });
+    legendEntries = keys.map(k => {
+      const info = buildingNames[k];
+      return { key: k, label: info ? `${k} (${info.name})` : k, color: colorMap[k] };
+    });
+  } else if (colorMode === 'dept') {
+    const keys = [...new Set(filtered.map(c => c.dept))].sort();
+    keys.forEach((k, i) => { colorMap[k] = PALETTE[i % PALETTE.length]; });
+    legendEntries = keys.map(k => ({
+      key: k, label: deptNames[k] ? `${k} - ${deptNames[k]}` : k, color: colorMap[k],
+    }));
+  }
+
+  // Update legend
+  const legend = document.getElementById('legend');
+  const legendItems = document.getElementById('legendItems');
+  const legendLabel = document.getElementById('legendLabel');
+  if (legendEntries.length > 1) {
+    legend.style.display = '';
+    legendLabel.textContent = colorMode === 'level' ? 'Levels' : colorMode === 'building' ? 'Buildings' : 'Departments';
+    legendItems.innerHTML = legendEntries.map(e => {
+      return `<div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:12px;height:12px;border-radius:2px;background:${e.color.bg};border-left:3px solid ${e.color.border};"></div>
+        <span>${e.label}</span>
+      </div>`;
+    }).join('');
+  } else {
+    legend.style.display = 'none';
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-data">No classes match your filters.</div>';
+    return;
+  }
+
+  // Fixed time range: 6:30 AM to 10:30 PM
+  const minTime = 6 * 60 + 30;
+  const maxTime = 22 * 60 + 30;
+  const totalMinutes = maxTime - minTime;
+  const gridHeight = totalMinutes * PIXELS_PER_MINUTE;
+
+  // Determine which days to show
+  const isDayView = currentView === 'day';
+  const selectedDay = parseInt(document.getElementById('daySelect').value);
+  const visibleDays = isDayView ? [selectedDay] : [0, 1, 2, 3, 4];
+  const numCols = visibleDays.length;
+
+  const colTemplate = `70px repeat(${numCols}, 1fr)`;
+
+  // Header (non-scrolling)
+  let html = `<div class="schedule-header" style="grid-template-columns: ${colTemplate}; border: 1px solid #ddd; border-bottom: none; border-radius: 8px 8px 0 0; overflow: hidden;">`;
+  html += '<div class="day-header time-header"></div>';
+  for (const d of visibleDays) {
+    html += `<div class="day-header">${DAY_NAMES[d]}</div>`;
+  }
+  html += '</div>';
+
+  // Scrollable body
+  html += `<div class="schedule-body" style="border: 1px solid #ddd; border-top: none; border-radius: 0 0 8px 8px; overflow-y: auto;">`;
+  html += `<div class="schedule-body-grid" style="grid-template-columns: ${colTemplate};">`;
+
+  // Time column
+  html += `<div class="time-col" style="height:${gridHeight}px;">`;
+  for (let m = minTime; m <= maxTime; m += 30) {
+    const top = (m - minTime) * PIXELS_PER_MINUTE;
+    if (m % 60 === 0) {
+      const h = m / 60;
+      const label = h === 0 ? '12 AM' : h < 12 ? h + ' AM' : h === 12 ? '12 PM' : (h - 12) + ' PM';
+      html += `<div class="time-label" style="top:${top}px">${label}</div>`;
+    }
+  }
+  html += '</div>';
+
+  // Day columns
+  for (const d of visibleDays) {
+    html += `<div class="day-col" style="height:${gridHeight}px;">`;
+
+    // Hour lines
+    for (let m = minTime; m <= maxTime; m += 30) {
+      const top = (m - minTime) * PIXELS_PER_MINUTE;
+      const cls = m % 60 === 0 ? 'hour-line on-hour' : 'hour-line';
+      html += `<div class="${cls}" style="top:${top}px"></div>`;
+    }
+
+    // Class blocks for this day
+    const dayCourses = filtered.filter(c => c.days.includes(d));
+
+    // Merge entries with same room + same time into one visual block
+    const slotMap = new Map();
+    for (const c of dayCourses) {
+      const key = `${c.time.start}|${c.time.end}|${c.room}`;
+      if (!slotMap.has(key)) {
+        slotMap.set(key, { time: c.time, room: c.room, building: c.building, entries: [] });
+      }
+      slotMap.get(key).entries.push(c);
+    }
+    const blocks = [...slotMap.values()].sort((a, b) => a.time.start - b.time.start || a.time.end - b.time.end);
+
+    // Assign columns: greedy left-to-right packing
+    const columns = [];
+    const layout = [];
+    for (const block of blocks) {
+      let placed = false;
+      for (let col = 0; col < columns.length; col++) {
+        if (columns[col] <= block.time.start) {
+          columns[col] = block.time.end;
+          layout.push({ block, col });
+          placed = true;
+          break;
+        }
+      }
+      if (!placed) {
+        layout.push({ block, col: columns.length });
+        columns.push(block.time.end);
+      }
+    }
+
+    // Group overlapping blocks to find how many columns each group needs
+    const groups = [];
+    for (const item of layout) {
+      let added = false;
+      for (const g of groups) {
+        if (g.items.some(other => item.block.time.start < other.block.time.end && item.block.time.end > other.block.time.start)) {
+          g.items.push(item);
+          g.numCols = Math.max(g.numCols, item.col + 1);
+          added = true;
+          break;
+        }
+      }
+      if (!added) {
+        groups.push({ items: [item], numCols: item.col + 1 });
+      }
+    }
+
+    // Render
+    for (const g of groups) {
+      for (const item of g.items) {
+        const b = item.block;
+        const top = (b.time.start - minTime) * PIXELS_PER_MINUTE;
+        const height = (b.time.end - b.time.start) * PIXELS_PER_MINUTE;
+        const widthPct = 100 / g.numCols;
+        const leftPct = item.col * widthPct;
+
+        // Use first entry for color
+        const first = b.entries[0];
+        let blockStyle = `top:${top}px;height:${height}px;left:${leftPct}%;width:${widthPct}%;right:auto;`;
+        let blockClass = 'class-block';
+        let colorKey = colorMode === 'building' ? b.building : colorMode === 'dept' ? first.dept : first.level;
+        const col = colorMap[colorKey];
+        if (col) {
+          blockStyle += `background:${col.bg};border-left-color:${col.border};`;
+        }
+
+        // Build display name and tooltip data
+        const names = b.entries.map(c => {
+          const name = c.course.replace(/\s{2,}/g, ' ').split(' ').slice(0, 2).join(' ');
+          const secCount = c.uniques.length > 1 ? ` (${c.uniques.length})` : '';
+          return name + secCount;
+        });
+        const displayName = [...new Set(names)].join(', ');
+
+        // Encode all entries as JSON for tooltip
+        const tooltipData = b.entries.map(c => ({
+          course: c.course,
+          dept: deptNames[c.dept] ? `${c.dept} - ${deptNames[c.dept]}` : c.dept,
+          instructor: c.instructor,
+          uniques: c.uniques,
+          status: c.status,
+          mode: c.instruction_mode,
+          level: c.level === 'lower' ? 'Lower' : c.level === 'upper' ? 'Upper' : c.level === 'grad' ? 'Graduate' : c.level,
+        }));
+
+        html += `<div class="${blockClass}" style="${blockStyle}"
+          data-room="${esc(b.room)}"
+          data-time="${formatTime(b.time.start)}-${formatTime(b.time.end)}"
+          data-entries="${esc(JSON.stringify(tooltipData))}">
+          <div class="course-name">${esc(displayName)}</div>
+          <div class="course-detail">${esc(b.room)}</div>
+          ${height > 40 ? `<div class="course-detail">${esc(b.entries.map(c => c.instructor).filter(Boolean).join(', '))}</div>` : ''}
+        </div>`;
+      }
+    }
+
+    html += '</div>';
+  }
+
+  html += '</div></div>'; // close schedule-body-grid + schedule-body
+  container.innerHTML = html;
+
+  // Restore scroll position
+  const newScrollBody = container.querySelector('.schedule-body');
+  if (newScrollBody) newScrollBody.scrollTop = savedScroll;
+
+  // Tooltip listeners
+  container.querySelectorAll('.class-block').forEach(el => {
+    el.addEventListener('mouseenter', showTooltip);
+    el.addEventListener('mousemove', moveTooltip);
+    el.addEventListener('mouseleave', hideTooltip);
+  });
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function formatTime(minutes) {
+  let h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  if (h > 12) h -= 12;
+  if (h === 0) h = 12;
+  return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+}
+
+const tooltip = document.getElementById('tooltip');
+function showTooltip(e) {
+  const el = e.currentTarget;
+  const entries = JSON.parse(el.dataset.entries);
+  const roomBldg = el.dataset.room.split(/\s+/)[0];
+  const bldgInfo = buildingNames[roomBldg];
+  const bldgLabel = bldgInfo ? `${roomBldg} (${bldgInfo.name} @ ${bldgInfo.campus})` : roomBldg;
+  const roomNum = el.dataset.room.split(/\s+/).slice(1).join(' ');
+  let tip = `<strong>Building: ${bldgLabel}</strong><br>Room: ${roomNum}<br>Time: ${el.dataset.time}<br>`;
+  if (entries.length > 1) tip += '<hr style="border:none;border-top:1px solid #555;margin:6px 0;">';
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    if (i > 0) tip += '<hr style="border:none;border-top:1px solid #555;margin:6px 0;">';
+    const uniqueLabel = e.uniques.length > 1 ? `Uniques (${e.uniques.length})` : 'Unique';
+    tip += `<strong>${e.course}</strong><br>`;
+    tip += `Dept: ${e.dept}<br>`;
+    tip += `Level: ${e.level}<br>`;
+    tip += `Instructor: ${e.instructor}<br>`;
+    tip += `${uniqueLabel}: ${e.uniques.join(', ')}<br>`;
+    tip += `Status: ${e.status}<br>`;
+    tip += `Mode: ${e.mode}`;
+  }
+  tooltip.innerHTML = tip;
+  tooltip.style.display = 'block';
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  tooltip.style.left = (e.clientX + 12) + 'px';
+  tooltip.style.top = (e.clientY + 12) + 'px';
+}
+function hideTooltip() { tooltip.style.display = 'none'; }
+
+// Event listeners
+document.getElementById('dept').addEventListener('change', () => {
+  const dept = document.getElementById('dept').value;
+  greenBuildings.clear();
+  populateBuildings(allCourses, dept);
+  populateFloors(allCourses, document.getElementById('building').value);
+  render();
+  updateMarkerColors();
+});
+document.getElementById('building').addEventListener('change', () => {
+  greenBuildings.clear();
+  populateFloors(allCourses, document.getElementById('building').value);
+  render();
+  updateMarkerColors();
+});
+document.getElementById('floor').addEventListener('change', render);
+document.getElementById('lvl-lower').addEventListener('change', render);
+document.getElementById('lvl-upper').addEventListener('change', render);
+document.getElementById('lvl-grad').addEventListener('change', render);
+document.getElementById('show-cancelled').addEventListener('change', render);
+document.getElementById('term-w').addEventListener('change', render);
+document.getElementById('term-f').addEventListener('change', render);
+document.getElementById('term-s').addEventListener('change', render);
+document.getElementById('term-n').addEventListener('change', render);
+document.getElementById('colorMode').addEventListener('change', render);
+document.getElementById('btn-week').addEventListener('click', () => {
+  currentView = 'week';
+  document.getElementById('btn-week').style.background = '#e94560';
+  document.getElementById('btn-week').style.fontWeight = '600';
+  document.getElementById('btn-week').style.color = '#fff';
+  document.getElementById('btn-day').style.background = '#16213e';
+  document.getElementById('btn-day').style.fontWeight = '400';
+  document.getElementById('btn-day').style.color = '#eee';
+  document.getElementById('daySelect').style.display = 'none';
+  render();
+});
+document.getElementById('btn-day').addEventListener('click', () => {
+  currentView = 'day';
+  document.getElementById('btn-day').style.background = '#e94560';
+  document.getElementById('btn-day').style.fontWeight = '600';
+  document.getElementById('btn-day').style.color = '#fff';
+  document.getElementById('btn-week').style.background = '#16213e';
+  document.getElementById('btn-week').style.fontWeight = '400';
+  document.getElementById('btn-week').style.color = '#eee';
+  document.getElementById('daySelect').style.display = '';
+  render();
+});
+document.getElementById('daySelect').addEventListener('change', render);
+
+// Parse catalog file: each line is "Label": "name", "url"
+function parseCatalog(text) {
+  const entries = [];
+  for (let line of text.split('\n')) {
+    line = line.trim().replace(/,\s*$/, '');
+    if (!line) continue;
+    const parts = line.split(':');
+    if (parts.length < 2) continue;
+    const label = parts[0].trim().replace(/^"|"$/g, '');
+    const rest = parts.slice(1).join(':'); // rejoin in case URL has colons
+    const vals = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < rest.length; i++) {
+      const c = rest[i];
+      if (c === '"') { inQ = !inQ; }
+      else if (c === ',' && !inQ) { vals.push(cur.trim().replace(/^"|"$/g, '')); cur = ''; }
+      else { cur += c; }
+    }
+    if (cur.trim()) vals.push(cur.trim().replace(/^"|"$/g, ''));
+    if (label && vals.length >= 1) {
+      entries.push({ label, name: vals[0], file: `courses/${vals[0]}.csv` });
+    }
+  }
+  return entries;
+}
+
+function populateSemesters() {
+  const sel = document.getElementById('semester');
+  sel.innerHTML = '';
+  for (const entry of catalogEntries) {
+    const opt = document.createElement('option');
+    opt.value = entry.name;
+    opt.textContent = entry.label;
+    sel.appendChild(opt);
+  }
+}
+
+function loadCourses(filename) {
+  const container = document.getElementById('scheduleContainer');
+  container.innerHTML = '<div class="no-data">Loading...</div>';
+  fetch(filename).then(r => {
+    if (!r.ok) throw new Error(`Could not load ${filename}`);
+    return r.text();
+  }).then(csvText => {
+    const raw = parseCSV(csvText);
+    allCourses = processCourses(raw);
+    document.getElementById('dept').value = '';
+    document.getElementById('building').value = '';
+    document.getElementById('floor').value = '';
+    populateDepts(allCourses);
+    populateBuildings(allCourses, '');
+    document.getElementById('floor').innerHTML = '<option value="">All Floors</option>';
+    // Show term filter only if courses have term prefixes
+    const hasTerms = allCourses.some(c => c.term !== '');
+    document.getElementById('termFilter').style.display = hasTerms ? '' : 'none';
+    render();
+  }).catch(err => {
+    allCourses = [];
+    container.innerHTML = '<div class="no-data">Error loading data: ' + err.message + '</div>';
+  });
+}
+
+document.getElementById('semester').addEventListener('change', () => {
+  const selected = catalogEntries.find(e => e.name === document.getElementById('semester').value);
+  if (selected) {
+    // Reset all filters
+    document.getElementById('dept').value = '';
+    document.getElementById('building').value = '';
+    document.getElementById('floor').innerHTML = '<option value="">All Floors</option>';
+    document.getElementById('term-w').checked = true;
+    document.getElementById('term-f').checked = true;
+    document.getElementById('term-s').checked = true;
+    document.getElementById('term-n').checked = true;
+    document.getElementById('lvl-lower').checked = true;
+    document.getElementById('lvl-upper').checked = true;
+    document.getElementById('lvl-grad').checked = true;
+    document.getElementById('show-cancelled').checked = false;
+    // Reset map state
+    greenBuildings.clear();
+    updateMarkerColors();
+    // Clear schedule immediately
+    allCourses = [];
+    document.getElementById('count').textContent = '0';
+    document.getElementById('legend').style.display = 'none';
+    const container = document.getElementById('scheduleContainer');
+    container.innerHTML = '<div class="no-data">Select a department or building to view the schedule.</div>';
+    document.querySelector('.subtitle').textContent = 'UT Austin ' + selected.label;
+    loadCourses(selected.file);
+  }
+});
+
+// Load static data, then catalog, then first semester's courses
+Promise.all([
+  fetch('abbreviations.txt').then(r => r.text()),
+  fetch('buildings.csv').then(r => r.text()),
+  fetch('courses/catalog').then(r => r.text()),
+  fetch('locs.txt').then(r => r.text()).catch(() => ''),
+]).then(([abbrText, bldgText, catalogText, locsText]) => {
+    // Parse abbreviations: "C S - Computer Science"
+    for (const line of abbrText.split('\n')) {
+      const m = line.match(/^(.+?)\s+-\s+(.+)$/);
+      if (m) deptNames[m[1].trim()] = m[2].trim();
+    }
+    // Parse buildings CSV
+    const bldgRows = parseCSV(bldgText);
+    for (const row of bldgRows) {
+      const abbr = row.building_abbreviation;
+      if (abbr) {
+        buildingNames[abbr] = { name: row.building_name, campus: row.campus_name };
+      }
+    }
+    // Parse building locations (lat, lng)
+    for (const line of locsText.split('\n')) {
+      const m = line.match(/\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)(?:\s*,\s*(\S+))?/);
+      if (m) buildingMarkers.push({ x: parseFloat(m[1]), y: parseFloat(m[2]), label: m[3] || '' });
+    }
+    // Parse catalog and populate semester dropdown (filter to existing CSVs)
+    catalogEntries = parseCatalog(catalogText);
+    populateSemesters();
+    // Load first semester
+    if (catalogEntries.length > 0) {
+      document.querySelector('.subtitle').textContent = 'UT Austin ' + catalogEntries[0].label;
+      loadCourses(catalogEntries[0].file);
+    }
+  })
+  .catch(err => {
+    document.getElementById('scheduleContainer').innerHTML = '<div class="no-data">Error loading data: ' + err.message + '</div>';
+  });
+</script>
+</body>
+</html>

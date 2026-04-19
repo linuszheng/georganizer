@@ -1,0 +1,5 @@
+abbreviations.txt from: https://catalog.utexas.edu/general-information/coursesatoz/
+2026summer.csv from: https://utdirect.utexas.edu/apps/registrar/course_schedule/20266/ (Summer 2026)
+2026fall.csv from: https://utdirect.utexas.edu/apps/registrar/course_schedule/20269/ (Fall 2026)
+buildings.csv from: https://utdirect.utexas.edu/apps/campus/buildings/information/nlogon/maps
+visitors_parking_map_26.pdf from: https://parking.utexas.edu/sites/default/files/documents/visitors_parking_map_26.pdf
