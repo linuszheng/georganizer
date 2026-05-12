@@ -1,0 +1,16 @@
+{
+  "name": "WORKER-NAME",
+  "main": "src/index.html",
+  "compatibility_date": "2025-02-04",
+  "observability": {
+    "enabled": true
+  },
+
+  // Add this to your wrangler.jsonc
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "842973f199ab428f896b02edf7346dd9"
+    }
+  ]
+}
