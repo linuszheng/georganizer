@@ -652,14 +652,7 @@ Promise.all([
   loadFlyerData(),
   fetch('../buildings.csv').then(r => r.text()),
   fetch('../locs.txt').then(r => r.text()).catch(() => ''),
-  // Parse directory listing from python http.server to get flyer codes
-  fetch('../flyer-files/').then(r => r.text()).then(html => {
-    const matches = html.match(/href="([^"]+)"/g) || [];
-    return matches
-      .map(m => m.match(/href="([^"]+)"/)[1])
-      .filter(f => !f.startsWith('/') && !f.startsWith('?') && f !== '../')
-      .map(f => decodeURIComponent(f).replace(/\.[^.]+$/, ''));
-  }).catch(() => []),
+  fetch('../flyer-files/index.json').then(r => r.json()).catch(() => []),
 ]).then(([_, bldgText, locsText, codes]) => {
   flyerCodes = codes;
   const bldgRows = parseCSV(bldgText);
