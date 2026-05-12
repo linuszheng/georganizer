@@ -1,6 +1,8 @@
 {
   "name": "georganizer",
-  "main": "index.html",
+  "assets": {
+    "directory": "."
+  },
   "compatibility_date": "2025-02-04",
   "observability": {
     "enabled": true
