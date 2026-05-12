@@ -1,0 +1,4151 @@
+{
+  "ADH": {
+    "name": "ALMETRIS DUREN RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "ADH.pdf",
+        "label": "ALMETRIS DUREN RESIDENCE HALL"
+      }
+    ]
+  },
+  "AF1": {
+    "name": "ATHLETIC FIELDS PAVILION (REHAB)",
+    "files": [
+      {
+        "filename": "AF1.pdf",
+        "label": "ATHLETIC FIELDS PAVILION (REHAB)"
+      }
+    ]
+  },
+  "AF2": {
+    "name": "ATHLETIC FIELDS PAVILION (EASTSIDE)",
+    "files": [
+      {
+        "filename": "AF2.pdf",
+        "label": "ATHLETIC FIELDS PAVILION (EASTSIDE)"
+      }
+    ]
+  },
+  "AFP": {
+    "name": "ATHLETIC FIELDS PAVILION",
+    "files": [
+      {
+        "filename": "AFP.pdf",
+        "label": "ATHLETIC FIELDS PAVILION"
+      }
+    ]
+  },
+  "AHG": {
+    "name": "ANNA HISS GYMNASIUM",
+    "files": [
+      {
+        "filename": "AHG.pdf",
+        "label": "ANNA HISS GYMNASIUM"
+      }
+    ]
+  },
+  "ANB": {
+    "name": "ARNO NOWOTNY BUILDING",
+    "files": [
+      {
+        "filename": "ANB.pdf",
+        "label": "ARNO NOWOTNY BUILDING"
+      }
+    ]
+  },
+  "AND": {
+    "name": "ANDREWS RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "AND.pdf",
+        "label": "ANDREWS RESIDENCE HALL"
+      }
+    ]
+  },
+  "ART": {
+    "name": "ART BUILDING AND MUSEUM",
+    "files": [
+      {
+        "filename": "ART.pdf",
+        "label": "ART BUILDING AND MUSEUM"
+      }
+    ]
+  },
+  "ASE": {
+    "name": "AEROSPACE ENGINEERING BUILDING",
+    "files": [
+      {
+        "filename": "ASE.pdf",
+        "label": "AEROSPACE ENGINEERING BUILDING"
+      }
+    ]
+  },
+  "ATT": {
+    "name": "AT&T EXECUTIVE EDUC & CONF CENTER",
+    "files": [
+      {
+        "filename": "ATT.pdf",
+        "label": "AT&T EXECUTIVE EDUC & CONF CENTER"
+      }
+    ]
+  },
+  "BAT": {
+    "name": "BATTS HALL",
+    "files": [
+      {
+        "filename": "BAT.pdf",
+        "label": "BATTS HALL"
+      }
+    ]
+  },
+  "BBR": {
+    "name": "BASKETBALL & ROWING TRAINING FAC",
+    "files": [
+      {
+        "filename": "BBR.pdf",
+        "label": "BASKETBALL & ROWING TRAINING FAC"
+      }
+    ]
+  },
+  "BEL": {
+    "name": "L. THEO BELLMONT HALL",
+    "files": [
+      {
+        "filename": "BEL.pdf",
+        "label": "L. THEO BELLMONT HALL"
+      }
+    ]
+  },
+  "BEN": {
+    "name": "BENEDICT HALL",
+    "files": [
+      {
+        "filename": "BEN.pdf",
+        "label": "BENEDICT HALL"
+      }
+    ]
+  },
+  "BHD": {
+    "name": "BRACKENRIDGE RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "BHD.pdf",
+        "label": "BRACKENRIDGE RESIDENCE HALL"
+      }
+    ]
+  },
+  "BIO": {
+    "name": "BIOLOGICAL LABORATORIES",
+    "files": [
+      {
+        "filename": "BIO.pdf",
+        "label": "BIOLOGICAL LABORATORIES"
+      }
+    ]
+  },
+  "BLD": {
+    "name": "BLANTON RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "BLD.pdf",
+        "label": "BLANTON RESIDENCE HALL"
+      }
+    ]
+  },
+  "BMA": {
+    "name": "JACK S. BLANTON MUSEUM OF ART",
+    "files": [
+      {
+        "filename": "BMA.pdf",
+        "label": "JACK S. BLANTON MUSEUM OF ART"
+      }
+    ]
+  },
+  "BME": {
+    "name": "BIOMEDICAL ENGINEERING BUILDING",
+    "files": [
+      {
+        "filename": "BME.pdf",
+        "label": "BIOMEDICAL ENGINEERING BUILDING"
+      }
+    ]
+  },
+  "BMK": {
+    "name": "BLANTON MUSEUM ELLSWORTH KELLY",
+    "files": [
+      {
+        "filename": "BMK.pdf",
+        "label": "BLANTON MUSEUM ELLSWORTH KELLY"
+      }
+    ]
+  },
+  "BMS": {
+    "name": "BLANTON MUSEUM SMITH BUILDING",
+    "files": [
+      {
+        "filename": "BMS.pdf",
+        "label": "BLANTON MUSEUM SMITH BUILDING"
+      }
+    ]
+  },
+  "BOT": {
+    "name": "BIOLOGICAL GREENHOUSE",
+    "files": [
+      {
+        "filename": "BOT.pdf",
+        "label": "BIOLOGICAL GREENHOUSE"
+      }
+    ]
+  },
+  "BRB": {
+    "name": "BERNARD AND AUDRE RAPOPORT BUILDING",
+    "files": [
+      {
+        "filename": "BRB.pdf",
+        "label": "BERNARD AND AUDRE RAPOPORT BUILDING"
+      }
+    ]
+  },
+  "BRG": {
+    "name": "BRAZOS GARAGE",
+    "files": [
+      {
+        "filename": "BRG.pdf",
+        "label": "BRAZOS GARAGE"
+      }
+    ]
+  },
+  "BTL": {
+    "name": "BATTLE HALL",
+    "files": [
+      {
+        "filename": "BTL.pdf",
+        "label": "BATTLE HALL"
+      }
+    ]
+  },
+  "BUR": {
+    "name": "BURDINE HALL",
+    "files": [
+      {
+        "filename": "BUR.pdf",
+        "label": "BURDINE HALL"
+      }
+    ]
+  },
+  "BWY": {
+    "name": "2616 WICHITA (BRIDGEWAY)",
+    "files": [
+      {
+        "filename": "BWY.pdf",
+        "label": "2616 WICHITA (BRIDGEWAY)"
+      }
+    ]
+  },
+  "CAL": {
+    "name": "CALHOUN HALL",
+    "files": [
+      {
+        "filename": "CAL.pdf",
+        "label": "CALHOUN HALL"
+      }
+    ]
+  },
+  "CBA": {
+    "name": "COLLEGE OF BUSINESS ADMINISTRATION",
+    "files": [
+      {
+        "filename": "CBA.pdf",
+        "label": "COLLEGE OF BUSINESS ADMINISTRATION"
+      }
+    ]
+  },
+  "CCG": {
+    "name": "CONFERENCE CENTER GARAGE",
+    "files": [
+      {
+        "filename": "CCG.pdf",
+        "label": "CONFERENCE CENTER GARAGE"
+      }
+    ]
+  },
+  "CCJ": {
+    "name": "CONNALLY CENTER FOR JUSTICE",
+    "files": [
+      {
+        "filename": "CCJ.pdf",
+        "label": "CONNALLY CENTER FOR JUSTICE"
+      }
+    ]
+  },
+  "CDA": {
+    "name": "COMAL CHILD DEVELOPMENT CTR ANNEX",
+    "files": [
+      {
+        "filename": "CDA.pdf",
+        "label": "COMAL CHILD DEVELOPMENT CTR ANNEX"
+      }
+    ]
+  },
+  "CDL": {
+    "name": "COLLECTIONS DEPOSIT LIBRARY",
+    "files": [
+      {
+        "filename": "CDL.pdf",
+        "label": "COLLECTIONS DEPOSIT LIBRARY"
+      }
+    ]
+  },
+  "CLK": {
+    "name": "CAVEN CLARK FIELD SUPPORT BUILDING",
+    "files": [
+      {
+        "filename": "CLK.pdf",
+        "label": "CAVEN CLARK FIELD SUPPORT BUILDING"
+      }
+    ]
+  },
+  "CMA": {
+    "name": "JESSE H. JONES COMM. CTR. (BLDG. A)",
+    "files": [
+      {
+        "filename": "CMA.pdf",
+        "label": "JESSE H. JONES COMM. CTR. (BLDG. A)"
+      }
+    ]
+  },
+  "CMB": {
+    "name": "JESSE H. JONES COMM. CTR. (BLDG. B)",
+    "files": [
+      {
+        "filename": "CMB.pdf",
+        "label": "JESSE H. JONES COMM. CTR. (BLDG. B)"
+      }
+    ]
+  },
+  "CML": {
+    "name": "COMAL ST. CHILD DEVELOPMENT CENTER",
+    "files": [
+      {
+        "filename": "CML.pdf",
+        "label": "COMAL ST. CHILD DEVELOPMENT CENTER"
+      }
+    ]
+  },
+  "CPC": {
+    "name": "CPC FIELD STAFF OFFICE",
+    "files": [
+      {
+        "filename": "CPC.pdf",
+        "label": "CPC FIELD STAFF OFFICE"
+      }
+    ]
+  },
+  "CPE": {
+    "name": "CHEMICAL AND PETROLEUM ENGINEERING",
+    "files": [
+      {
+        "filename": "CPE.pdf",
+        "label": "CHEMICAL AND PETROLEUM ENGINEERING"
+      }
+    ]
+  },
+  "CRD": {
+    "name": "CAROTHERS RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "CRD.pdf",
+        "label": "CAROTHERS RESIDENCE HALL"
+      }
+    ]
+  },
+  "CRH": {
+    "name": "CREEKSIDE RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "CRH.pdf",
+        "label": "CREEKSIDE RESIDENCE HALL"
+      }
+    ]
+  },
+  "D21": {
+    "name": "DOBIE TWENTY21",
+    "files": [
+      {
+        "filename": "D21.pdf",
+        "label": "DOBIE TWENTY21"
+      }
+    ]
+  },
+  "DEV": {
+    "name": "DEVELOPMENT OFFICE BUILDING",
+    "files": [
+      {
+        "filename": "DEV.pdf",
+        "label": "DEVELOPMENT OFFICE BUILDING"
+      }
+    ]
+  },
+  "DFA": {
+    "name": "E. WILLIAM DOTY FINE ARTS BUILDING",
+    "files": [
+      {
+        "filename": "DFA.pdf",
+        "label": "E. WILLIAM DOTY FINE ARTS BUILDING"
+      }
+    ]
+  },
+  "DFF": {
+    "name": "UFCU DISCH-FALK FIELD",
+    "files": [
+      {
+        "filename": "DFF.pdf",
+        "label": "UFCU DISCH-FALK FIELD"
+      }
+    ]
+  },
+  "DMC": {
+    "name": "G. B. DEALEY CENTER FOR NEW MEDIA",
+    "files": [
+      {
+        "filename": "DMC.pdf",
+        "label": "G. B. DEALEY CENTER FOR NEW MEDIA"
+      }
+    ]
+  },
+  "E11": {
+    "name": "EQUIPMENT STOREHOUSE # 11",
+    "files": [
+      {
+        "filename": "E11.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 11"
+      }
+    ]
+  },
+  "E13": {
+    "name": "EQUIPMENT STOREHOUSE # 13",
+    "files": [
+      {
+        "filename": "E13.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 13"
+      }
+    ]
+  },
+  "E15": {
+    "name": "EQUIPMENT STOREHOUSE # 15",
+    "files": [
+      {
+        "filename": "E15.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 15"
+      }
+    ]
+  },
+  "E23": {
+    "name": "EQUIPMENT STOREHOUSE # 23",
+    "files": [
+      {
+        "filename": "E23.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 23"
+      }
+    ]
+  },
+  "E24": {
+    "name": "EQUIPMENT STOREHOUSE # 24",
+    "files": [
+      {
+        "filename": "E24.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 24"
+      }
+    ]
+  },
+  "E25": {
+    "name": "EQUIPMENT STOREHOUSE # 25",
+    "files": [
+      {
+        "filename": "E25.pdf",
+        "label": "EQUIPMENT STOREHOUSE # 25"
+      }
+    ]
+  },
+  "E26": {
+    "name": "EQUIPMENT STOREHOUSE #26",
+    "files": [
+      {
+        "filename": "E26.pdf",
+        "label": "EQUIPMENT STOREHOUSE #26"
+      }
+    ]
+  },
+  "E27": {
+    "name": "EQUIPMENT STOREHOUSE #27",
+    "files": [
+      {
+        "filename": "E27.pdf",
+        "label": "EQUIPMENT STOREHOUSE #27"
+      }
+    ]
+  },
+  "ECG": {
+    "name": "EAST CAMPUS GARAGE",
+    "files": [
+      {
+        "filename": "ECG.pdf",
+        "label": "EAST CAMPUS GARAGE"
+      }
+    ]
+  },
+  "ECJ": {
+    "name": "ERNEST COCKRELL JR. HALL",
+    "files": [
+      {
+        "filename": "ECJ.pdf",
+        "label": "ERNEST COCKRELL JR. HALL"
+      }
+    ]
+  },
+  "EER": {
+    "name": "ENGR EDUCATION AND RESEARCH CENTER",
+    "files": [
+      {
+        "filename": "EER.pdf",
+        "label": "ENGR EDUCATION AND RESEARCH CENTER"
+      }
+    ]
+  },
+  "EPS": {
+    "name": "E.P. SCHOCH BUILDING",
+    "files": [
+      {
+        "filename": "EPS.pdf",
+        "label": "E.P. SCHOCH BUILDING"
+      }
+    ]
+  },
+  "ETC": {
+    "name": "ENGINEERING TEACHING CENTER II",
+    "files": [
+      {
+        "filename": "ETC.pdf",
+        "label": "ENGINEERING TEACHING CENTER II"
+      }
+    ]
+  },
+  "FAC": {
+    "name": "PETER T. FLAWN ACADEMIC CENTER",
+    "files": [
+      {
+        "filename": "FAC.pdf",
+        "label": "PETER T. FLAWN ACADEMIC CENTER"
+      }
+    ]
+  },
+  "FC1": {
+    "name": "FACILITIES COMPLEX BLDG. 1",
+    "files": [
+      {
+        "filename": "FC1.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 1"
+      }
+    ]
+  },
+  "FC2": {
+    "name": "FACILITIES COMPLEX BLDG. 2",
+    "files": [
+      {
+        "filename": "FC2.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 2"
+      }
+    ]
+  },
+  "FC3": {
+    "name": "FACILITIES COMPLEX BLDG. 3",
+    "files": [
+      {
+        "filename": "FC3.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 3"
+      }
+    ]
+  },
+  "FC4": {
+    "name": "FACILITIES COMPLEX BLDG. 4",
+    "files": [
+      {
+        "filename": "FC4.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 4"
+      }
+    ]
+  },
+  "FC5": {
+    "name": "FACILITIES COMPLEX BLDG. 5",
+    "files": [
+      {
+        "filename": "FC5.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 5"
+      }
+    ]
+  },
+  "FC6": {
+    "name": "FACILITIES COMPLEX BLDG. 6",
+    "files": [
+      {
+        "filename": "FC6.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 6"
+      }
+    ]
+  },
+  "FC7": {
+    "name": "FACILITIES COMPLEX BLDG. 7",
+    "files": [
+      {
+        "filename": "FC7.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 7"
+      }
+    ]
+  },
+  "FC8": {
+    "name": "FACILITIES COMPLEX BLDG. 8",
+    "files": [
+      {
+        "filename": "FC8.pdf",
+        "label": "FACILITIES COMPLEX BLDG. 8"
+      }
+    ]
+  },
+  "FC9": {
+    "name": "CUSTODIAL SERVICES TRAINING FAC",
+    "files": [
+      {
+        "filename": "FC9.pdf",
+        "label": "CUSTODIAL SERVICES TRAINING FAC"
+      }
+    ]
+  },
+  "FDG": {
+    "name": "J. FRANK DOBIE GARAGE",
+    "files": [
+      {
+        "filename": "FDG.pdf",
+        "label": "J. FRANK DOBIE GARAGE"
+      }
+    ]
+  },
+  "FDH": {
+    "name": "J. FRANK DOBIE HOUSE",
+    "files": [
+      {
+        "filename": "FDH.pdf",
+        "label": "J. FRANK DOBIE HOUSE"
+      }
+    ]
+  },
+  "FNT": {
+    "name": "LARRY R. FAULKNER NANO SCI AND TECH",
+    "files": [
+      {
+        "filename": "FNT.pdf",
+        "label": "LARRY R. FAULKNER NANO SCI AND TECH"
+      }
+    ]
+  },
+  "G17": {
+    "name": "TRAFFIC KIOSK - 214 1/2 W 24TH ST",
+    "files": [
+      {
+        "filename": "G17.pdf",
+        "label": "TRAFFIC KIOSK - 214 1/2 W 24TH ST"
+      }
+    ]
+  },
+  "GAR": {
+    "name": "GARRISON HALL",
+    "files": [
+      {
+        "filename": "GAR.pdf",
+        "label": "GARRISON HALL"
+      }
+    ]
+  },
+  "GDC": {
+    "name": "GATES DELL COMPLEX",
+    "files": [
+      {
+        "filename": "GDC.pdf",
+        "label": "GATES DELL COMPLEX"
+      }
+    ]
+  },
+  "GEA": {
+    "name": "MARY E. GEARING HALL",
+    "files": [
+      {
+        "filename": "GEA.pdf",
+        "label": "MARY E. GEARING HALL"
+      }
+    ]
+  },
+  "GEB": {
+    "name": "DOROTHY L. GEBAUER BUILDING",
+    "files": [
+      {
+        "filename": "GEB.pdf",
+        "label": "DOROTHY L. GEBAUER BUILDING"
+      }
+    ]
+  },
+  "GHA": {
+    "name": "GRADUATE HOUSING, UNIT A",
+    "files": [
+      {
+        "filename": "GHA.pdf",
+        "label": "GRADUATE HOUSING, UNIT A"
+      }
+    ]
+  },
+  "GHB": {
+    "name": "GRADUATE HOUSING, UNIT B",
+    "files": [
+      {
+        "filename": "GHB.pdf",
+        "label": "GRADUATE HOUSING, UNIT B"
+      }
+    ]
+  },
+  "GHC": {
+    "name": "GRADUATE HOUSING, UNIT C",
+    "files": [
+      {
+        "filename": "GHC.pdf",
+        "label": "GRADUATE HOUSING, UNIT C"
+      }
+    ]
+  },
+  "GHD": {
+    "name": "GRADUATE HOUSING, UNIT D",
+    "files": [
+      {
+        "filename": "GHD.pdf",
+        "label": "GRADUATE HOUSING, UNIT D"
+      }
+    ]
+  },
+  "GHE": {
+    "name": "GRADUATE HOUSING, UNIT E",
+    "files": [
+      {
+        "filename": "GHE.pdf",
+        "label": "GRADUATE HOUSING, UNIT E"
+      }
+    ]
+  },
+  "GHF": {
+    "name": "GRADUATE HOUSING, UNIT F",
+    "files": [
+      {
+        "filename": "GHF.pdf",
+        "label": "GRADUATE HOUSING, UNIT F"
+      }
+    ]
+  },
+  "GLT": {
+    "name": "GARY L THOMAS ENERGY ENGR BLDG",
+    "files": [
+      {
+        "filename": "GLT.pdf",
+        "label": "GARY L THOMAS ENERGY ENGR BLDG"
+      }
+    ]
+  },
+  "GOL": {
+    "name": "GOLDSMITH HALL",
+    "files": [
+      {
+        "filename": "GOL.pdf",
+        "label": "GOLDSMITH HALL"
+      }
+    ]
+  },
+  "GRC": {
+    "name": "GREGORY AQUATIC POOL CONTROL BLDG.",
+    "files": [
+      {
+        "filename": "GRC.pdf",
+        "label": "GREGORY AQUATIC POOL CONTROL BLDG."
+      }
+    ]
+  },
+  "GRE": {
+    "name": "GREGORY GYMNASIUM",
+    "files": [
+      {
+        "filename": "GRE.pdf",
+        "label": "GREGORY GYMNASIUM"
+      }
+    ]
+  },
+  "GRF": {
+    "name": "GREGORY AQUATIC FOOD SERVICE BLDG.",
+    "files": [
+      {
+        "filename": "GRF.pdf",
+        "label": "GREGORY AQUATIC FOOD SERVICE BLDG."
+      }
+    ]
+  },
+  "GRP": {
+    "name": "GREGORY AQUATIC POOL EQUIP. BLDG.",
+    "files": [
+      {
+        "filename": "GRP.pdf",
+        "label": "GREGORY AQUATIC POOL EQUIP. BLDG."
+      }
+    ]
+  },
+  "GRS": {
+    "name": "GREGORY AQUATIC POOL STORAGE BLDG.",
+    "files": [
+      {
+        "filename": "GRS.pdf",
+        "label": "GREGORY AQUATIC POOL STORAGE BLDG."
+      }
+    ]
+  },
+  "GSB": {
+    "name": "GRADUATE SCHOOL OF BUSINESS BLDG.",
+    "files": [
+      {
+        "filename": "GSB.pdf",
+        "label": "GRADUATE SCHOOL OF BUSINESS BLDG."
+      }
+    ]
+  },
+  "GSM": {
+    "name": "GRADUATE HOUSING, MAINTENANCE BLDG",
+    "files": [
+      {
+        "filename": "GSM.pdf",
+        "label": "GRADUATE HOUSING, MAINTENANCE BLDG"
+      }
+    ]
+  },
+  "GUG": {
+    "name": "GUADALUPE GARAGE",
+    "files": [
+      {
+        "filename": "GUG.pdf",
+        "label": "GUADALUPE GARAGE"
+      }
+    ]
+  },
+  "GWB": {
+    "name": "GORDON-WHITE BUILDING",
+    "files": [
+      {
+        "filename": "GWB.pdf",
+        "label": "GORDON-WHITE BUILDING"
+      }
+    ]
+  },
+  "HCG": {
+    "name": "HEALTH CENTER GARAGE",
+    "files": [
+      {
+        "filename": "HCG.pdf",
+        "label": "HEALTH CENTER GARAGE"
+      }
+    ]
+  },
+  "HDB": {
+    "name": "HEALTH DISCOVERY BUILDING",
+    "files": [
+      {
+        "filename": "HDB.pdf",
+        "label": "HEALTH DISCOVERY BUILDING"
+      }
+    ]
+  },
+  "HLB": {
+    "name": "HEALTH LEARNING BUILDING",
+    "files": [
+      {
+        "filename": "HLB.pdf",
+        "label": "HEALTH LEARNING BUILDING"
+      }
+    ]
+  },
+  "HMA": {
+    "name": "HOGG MEMORIAL AUDITORIUM",
+    "files": [
+      {
+        "filename": "HMA.pdf",
+        "label": "HOGG MEMORIAL AUDITORIUM"
+      }
+    ]
+  },
+  "HRC": {
+    "name": "HARRY RANSOM CENTER",
+    "files": [
+      {
+        "filename": "HRC.pdf",
+        "label": "HARRY RANSOM CENTER"
+      }
+    ]
+  },
+  "HRH": {
+    "name": "RAINEY HALL",
+    "files": [
+      {
+        "filename": "HRH.pdf",
+        "label": "RAINEY HALL"
+      }
+    ]
+  },
+  "ICB": {
+    "name": "INTRAMURAL CONTROL BLDG.",
+    "files": [
+      {
+        "filename": "ICB.pdf",
+        "label": "INTRAMURAL CONTROL BLDG."
+      }
+    ]
+  },
+  "IMA": {
+    "name": "INTRAMURAL MAINT BLDG A",
+    "files": [
+      {
+        "filename": "IMA.pdf",
+        "label": "INTRAMURAL MAINT BLDG A"
+      }
+    ]
+  },
+  "IMB": {
+    "name": "INTRAMURAL MAINT BLDG B",
+    "files": [
+      {
+        "filename": "IMB.pdf",
+        "label": "INTRAMURAL MAINT BLDG B"
+      }
+    ]
+  },
+  "IPF": {
+    "name": "INDOOR PRACTICE FACILITY",
+    "files": [
+      {
+        "filename": "IPF.pdf",
+        "label": "INDOOR PRACTICE FACILITY"
+      }
+    ]
+  },
+  "JCD": {
+    "name": "JESTER RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "JCD.pdf",
+        "label": "JESTER RESIDENCE HALL"
+      }
+    ]
+  },
+  "JES": {
+    "name": "BEAUFORD H. JESTER CENTER",
+    "files": [
+      {
+        "filename": "JES.pdf",
+        "label": "BEAUFORD H. JESTER CENTER"
+      }
+    ]
+  },
+  "JGB": {
+    "name": "JACKSON GEOLOGICAL SCIENCES BLDG.",
+    "files": [
+      {
+        "filename": "JGB.pdf",
+        "label": "JACKSON GEOLOGICAL SCIENCES BLDG."
+      }
+    ]
+  },
+  "JHH": {
+    "name": "JOHN W. HARGIS HALL",
+    "files": [
+      {
+        "filename": "JHH.pdf",
+        "label": "JOHN W. HARGIS HALL"
+      }
+    ]
+  },
+  "JON": {
+    "name": "JESSE H. JONES HALL",
+    "files": [
+      {
+        "filename": "JON.pdf",
+        "label": "JESSE H. JONES HALL"
+      }
+    ]
+  },
+  "KEY": {
+    "name": "UNIVERSITY KEY BUILDING",
+    "files": [
+      {
+        "filename": "KEY.pdf",
+        "label": "UNIVERSITY KEY BUILDING"
+      }
+    ]
+  },
+  "KIN": {
+    "name": "KINSOLVING RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "KIN.pdf",
+        "label": "KINSOLVING RESIDENCE HALL"
+      }
+    ]
+  },
+  "LAC": {
+    "name": "LAKE AUSTIN CENTRE",
+    "files": [
+      {
+        "filename": "LAC.pdf",
+        "label": "LAKE AUSTIN CENTRE"
+      }
+    ]
+  },
+  "LBJ": {
+    "name": "LYNDON B JOHNSON LIBRARY",
+    "files": [
+      {
+        "filename": "LBJ.pdf",
+        "label": "LYNDON B JOHNSON LIBRARY"
+      }
+    ]
+  },
+  "LCH": {
+    "name": "LITTLEFIELD CARRIAGE HOUSE",
+    "files": [
+      {
+        "filename": "LCH.pdf",
+        "label": "LITTLEFIELD CARRIAGE HOUSE"
+      }
+    ]
+  },
+  "LDH": {
+    "name": "LONGHORN DINING FACILITY",
+    "files": [
+      {
+        "filename": "LDH.pdf",
+        "label": "LONGHORN DINING FACILITY"
+      }
+    ]
+  },
+  "LFH": {
+    "name": "LITTLEFIELD HOME",
+    "files": [
+      {
+        "filename": "LFH.pdf",
+        "label": "LITTLEFIELD HOME"
+      }
+    ]
+  },
+  "LNA": {
+    "name": "LEONA ST. CHILD DEVELOPMENT CENTER",
+    "files": [
+      {
+        "filename": "LNA.pdf",
+        "label": "LEONA ST. CHILD DEVELOPMENT CENTER"
+      }
+    ]
+  },
+  "LS1": {
+    "name": "LANDSCAPE SERVICES STORAGE BLDG.",
+    "files": [
+      {
+        "filename": "LS1.pdf",
+        "label": "LANDSCAPE SERVICES STORAGE BLDG."
+      }
+    ]
+  },
+  "LTD": {
+    "name": "LITTLEFIELD RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "LTD.pdf",
+        "label": "LITTLEFIELD RESIDENCE HALL"
+      }
+    ]
+  },
+  "LTH": {
+    "name": "LABORATORY THEATER BLDG.",
+    "files": [
+      {
+        "filename": "LTH.pdf",
+        "label": "LABORATORY THEATER BLDG."
+      }
+    ]
+  },
+  "MAG": {
+    "name": "MANOR GARAGE",
+    "files": [
+      {
+        "filename": "MAG.pdf",
+        "label": "MANOR GARAGE"
+      }
+    ]
+  },
+  "MAI": {
+    "name": "MAIN BUILDING",
+    "files": [
+      {
+        "filename": "MAI.pdf",
+        "label": "MAIN BUILDING"
+      }
+    ]
+  },
+  "MBB": {
+    "name": "MOFFETT MOLECULAR BIOLOGY BLDG.",
+    "files": [
+      {
+        "filename": "MBB.pdf",
+        "label": "MOFFETT MOLECULAR BIOLOGY BLDG."
+      }
+    ]
+  },
+  "MEZ": {
+    "name": "MEZES HALL",
+    "files": [
+      {
+        "filename": "MEZ.pdf",
+        "label": "MEZES HALL"
+      }
+    ]
+  },
+  "MFH": {
+    "name": "RICHARD MITHOFF TRK/SCR FIELDHOUSE",
+    "files": [
+      {
+        "filename": "MFH.pdf",
+        "label": "RICHARD MITHOFF TRK/SCR FIELDHOUSE"
+      }
+    ]
+  },
+  "MHD": {
+    "name": "MOORE-HILL RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "MHD.pdf",
+        "label": "MOORE-HILL RESIDENCE HALL"
+      }
+    ]
+  },
+  "MMS": {
+    "name": "MIKE A.MYERS TRACK & SOCCER STADIUM",
+    "files": [
+      {
+        "filename": "MMS.pdf",
+        "label": "MIKE A.MYERS TRACK & SOCCER STADIUM"
+      }
+    ]
+  },
+  "MNC": {
+    "name": "MONCRIEF-NEUHAUS ATHLETIC CENTER",
+    "files": [
+      {
+        "filename": "MNC.pdf",
+        "label": "MONCRIEF-NEUHAUS ATHLETIC CENTER"
+      }
+    ]
+  },
+  "MRH": {
+    "name": "MUSIC BUILDING & RECITAL HALL",
+    "files": [
+      {
+        "filename": "MRH.pdf",
+        "label": "MUSIC BUILDING & RECITAL HALL"
+      }
+    ]
+  },
+  "MSB": {
+    "name": "2207 COMAL (MAIL SERVICE BUILDING)",
+    "files": [
+      {
+        "filename": "MSB.pdf",
+        "label": "2207 COMAL (MAIL SERVICE BUILDING)"
+      }
+    ]
+  },
+  "N24": {
+    "name": "2400 NUECES",
+    "files": [
+      {
+        "filename": "N24.pdf",
+        "label": "2400 NUECES"
+      }
+    ]
+  },
+  "NEZ": {
+    "name": "NORTH END ZONE BUILDING",
+    "files": [
+      {
+        "filename": "NEZ.pdf",
+        "label": "NORTH END ZONE BUILDING"
+      }
+    ]
+  },
+  "NHB": {
+    "name": "NORMAN HACKERMAN BUILDING",
+    "files": [
+      {
+        "filename": "NHB.pdf",
+        "label": "NORMAN HACKERMAN BUILDING"
+      }
+    ]
+  },
+  "NMS": {
+    "name": "NEURAL AND MOLECULAR SCIENCE BLDG.",
+    "files": [
+      {
+        "filename": "NMS.pdf",
+        "label": "NEURAL AND MOLECULAR SCIENCE BLDG."
+      }
+    ]
+  },
+  "NUG": {
+    "name": "NUECES GARAGE",
+    "files": [
+      {
+        "filename": "NUG.pdf",
+        "label": "NUECES GARAGE"
+      }
+    ]
+  },
+  "NUR": {
+    "name": "NURSING SCHOOL",
+    "files": [
+      {
+        "filename": "NUR.pdf",
+        "label": "NURSING SCHOOL"
+      }
+    ]
+  },
+  "PAC": {
+    "name": "PERFORMING ARTS CENTER",
+    "files": [
+      {
+        "filename": "PAC.pdf",
+        "label": "PERFORMING ARTS CENTER"
+      }
+    ]
+  },
+  "PAI": {
+    "name": "T.S. PAINTER HALL",
+    "files": [
+      {
+        "filename": "PAI.pdf",
+        "label": "T.S. PAINTER HALL"
+      }
+    ]
+  },
+  "PAR": {
+    "name": "PARLIN HALL",
+    "files": [
+      {
+        "filename": "PAR.pdf",
+        "label": "PARLIN HALL"
+      }
+    ]
+  },
+  "PAT": {
+    "name": "J.T. PATTERSON LABS.BLDG.",
+    "files": [
+      {
+        "filename": "PAT.pdf",
+        "label": "J.T. PATTERSON LABS.BLDG."
+      }
+    ]
+  },
+  "PCL": {
+    "name": "PERRY-CASTANEDA LIBRARY",
+    "files": [
+      {
+        "filename": "PCL.pdf",
+        "label": "PERRY-CASTANEDA LIBRARY"
+      }
+    ]
+  },
+  "PHD": {
+    "name": "PRATHER RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "PHD.pdf",
+        "label": "PRATHER RESIDENCE HALL"
+      }
+    ]
+  },
+  "PHR": {
+    "name": "PHARMACY BUILDING",
+    "files": [
+      {
+        "filename": "PHR.pdf",
+        "label": "PHARMACY BUILDING"
+      }
+    ]
+  },
+  "PMA": {
+    "name": "PHYSICS, MATH, & ASTRONOMY BUILDING",
+    "files": [
+      {
+        "filename": "PMA.pdf",
+        "label": "PHYSICS, MATH, & ASTRONOMY BUILDING"
+      }
+    ]
+  },
+  "POB": {
+    "name": "PETER O'DONNELL JR. BUILDING",
+    "files": [
+      {
+        "filename": "POB.pdf",
+        "label": "PETER O'DONNELL JR. BUILDING"
+      }
+    ]
+  },
+  "PRH": {
+    "name": "DOBIE PAISANO RANCH HOUSE",
+    "files": [
+      {
+        "filename": "PRH.pdf",
+        "label": "DOBIE PAISANO RANCH HOUSE"
+      }
+    ]
+  },
+  "RHD": {
+    "name": "ROBERTS RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "RHD.pdf",
+        "label": "ROBERTS RESIDENCE HALL"
+      }
+    ]
+  },
+  "RHG": {
+    "name": "ROWLING HALL GARAGE",
+    "files": [
+      {
+        "filename": "RHG.pdf",
+        "label": "ROWLING HALL GARAGE"
+      }
+    ]
+  },
+  "RLP": {
+    "name": "PATTON HALL",
+    "files": [
+      {
+        "filename": "RLP.pdf",
+        "label": "PATTON HALL"
+      }
+    ]
+  },
+  "RRH": {
+    "name": "ROBERT B. ROWLING HALL",
+    "files": [
+      {
+        "filename": "RRH.pdf",
+        "label": "ROBERT B. ROWLING HALL"
+      }
+    ]
+  },
+  "RSC": {
+    "name": "RECREATIONAL SPORTS CENTER",
+    "files": [
+      {
+        "filename": "RSC.pdf",
+        "label": "RECREATIONAL SPORTS CENTER"
+      }
+    ]
+  },
+  "SAG": {
+    "name": "SAN ANTONIO GARAGE",
+    "files": [
+      {
+        "filename": "SAG.pdf",
+        "label": "SAN ANTONIO GARAGE"
+      }
+    ]
+  },
+  "SBS": {
+    "name": "RED AND CHARLINE MCCOMBS FIELD",
+    "files": [
+      {
+        "filename": "SBS.pdf",
+        "label": "RED AND CHARLINE MCCOMBS FIELD"
+      }
+    ]
+  },
+  "SEA": {
+    "name": "SARAH M. & CHARLES E. SEAY BUILDING",
+    "files": [
+      {
+        "filename": "SEA.pdf",
+        "label": "SARAH M. & CHARLES E. SEAY BUILDING"
+      }
+    ]
+  },
+  "SEZ": {
+    "name": "SOUTH END ZONE",
+    "files": [
+      {
+        "filename": "SEZ.pdf",
+        "label": "SOUTH END ZONE"
+      }
+    ]
+  },
+  "SJG": {
+    "name": "SAN JACINTO GARAGE",
+    "files": [
+      {
+        "filename": "SJG.pdf",
+        "label": "SAN JACINTO GARAGE"
+      }
+    ]
+  },
+  "SJH": {
+    "name": "SAN JACINTO RESIDENCE HALL",
+    "files": [
+      {
+        "filename": "SJH.pdf",
+        "label": "SAN JACINTO RESIDENCE HALL"
+      }
+    ]
+  },
+  "SRH": {
+    "name": "SID RICHARDSON HALL",
+    "files": [
+      {
+        "filename": "SRH.pdf",
+        "label": "SID RICHARDSON HALL"
+      }
+    ]
+  },
+  "SSB": {
+    "name": "STUDENT SERVICES BUILDING",
+    "files": [
+      {
+        "filename": "SSB.pdf",
+        "label": "STUDENT SERVICES BUILDING"
+      }
+    ]
+  },
+  "STD": {
+    "name": "DARRELL K ROYAL TX MEMORIAL STADIUM",
+    "files": [
+      {
+        "filename": "STD.pdf",
+        "label": "DARRELL K ROYAL TX MEMORIAL STADIUM"
+      }
+    ]
+  },
+  "SUT": {
+    "name": "SUTTON HALL",
+    "files": [
+      {
+        "filename": "SUT.pdf",
+        "label": "SUTTON HALL"
+      }
+    ]
+  },
+  "SW7": {
+    "name": "2617 SPEEDWAY (OFC.BLDG.)",
+    "files": [
+      {
+        "filename": "SW7.pdf",
+        "label": "2617 SPEEDWAY (OFC.BLDG.)"
+      }
+    ]
+  },
+  "SWG": {
+    "name": "SPEEDWAY GARAGE",
+    "files": [
+      {
+        "filename": "SWG.pdf",
+        "label": "SPEEDWAY GARAGE"
+      }
+    ]
+  },
+  "SZB": {
+    "name": "GEORGE I. SANCHEZ BUILDING",
+    "files": [
+      {
+        "filename": "SZB.pdf",
+        "label": "GEORGE I. SANCHEZ BUILDING"
+      }
+    ]
+  },
+  "TCC": {
+    "name": "JOE C THOMPSON CONFERENCE CENTER",
+    "files": [
+      {
+        "filename": "TCC.pdf",
+        "label": "JOE C THOMPSON CONFERENCE CENTER"
+      }
+    ]
+  },
+  "TLB": {
+    "name": "TEXAS LONGHORNS BOATHOUSE",
+    "files": [
+      {
+        "filename": "TLB.pdf",
+        "label": "TEXAS LONGHORNS BOATHOUSE"
+      }
+    ]
+  },
+  "TMM": {
+    "name": "TX SCIENCE & NATURAL HISTORY MUSEUM",
+    "files": [
+      {
+        "filename": "TMM.pdf",
+        "label": "TX SCIENCE & NATURAL HISTORY MUSEUM"
+      }
+    ]
+  },
+  "TNH": {
+    "name": "TOWNES HALL",
+    "files": [
+      {
+        "filename": "TNH.pdf",
+        "label": "TOWNES HALL"
+      }
+    ]
+  },
+  "TRG": {
+    "name": "TRINITY GARAGE",
+    "files": [
+      {
+        "filename": "TRG.pdf",
+        "label": "TRINITY GARAGE"
+      }
+    ]
+  },
+  "TSB": {
+    "name": "TENNIS SUPPORT BUILDING",
+    "files": [
+      {
+        "filename": "TSB.pdf",
+        "label": "TENNIS SUPPORT BUILDING"
+      }
+    ]
+  },
+  "TSC": {
+    "name": "LEE & JOE JAMAIL TEXAS SWIMMING CTR",
+    "files": [
+      {
+        "filename": "TSC.pdf",
+        "label": "LEE & JOE JAMAIL TEXAS SWIMMING CTR"
+      }
+    ]
+  },
+  "TSG": {
+    "name": "27TH STREET GARAGE",
+    "files": [
+      {
+        "filename": "TSG.pdf",
+        "label": "27TH STREET GARAGE"
+      }
+    ]
+  },
+  "TSP": {
+    "name": "TEXAS SWIMMING CENTER PUMP HOUSE",
+    "files": [
+      {
+        "filename": "TSP.pdf",
+        "label": "TEXAS SWIMMING CENTER PUMP HOUSE"
+      }
+    ]
+  },
+  "TTC": {
+    "name": "TEXAS TENNIS CENTER",
+    "files": [
+      {
+        "filename": "TTC.pdf",
+        "label": "TEXAS TENNIS CENTER"
+      }
+    ]
+  },
+  "UA9": {
+    "name": "2609 UNIVERSITY AVENUE",
+    "files": [
+      {
+        "filename": "UA9.pdf",
+        "label": "2609 UNIVERSITY AVENUE"
+      }
+    ]
+  },
+  "UIL": {
+    "name": "UNIV. INTERSCHOLASTIC LEAGUE BLDG.",
+    "files": [
+      {
+        "filename": "UIL.pdf",
+        "label": "UNIV. INTERSCHOLASTIC LEAGUE BLDG."
+      }
+    ]
+  },
+  "UNB": {
+    "name": "UNION BUILDING",
+    "files": [
+      {
+        "filename": "UNB.pdf",
+        "label": "UNION BUILDING"
+      }
+    ]
+  },
+  "UPB": {
+    "name": "UNIVERSITY POLICE BUILDING",
+    "files": [
+      {
+        "filename": "UPB.pdf",
+        "label": "UNIVERSITY POLICE BUILDING"
+      }
+    ]
+  },
+  "UTA": {
+    "name": "UT ADMINISTRATION BUILDING",
+    "files": [
+      {
+        "filename": "UTA.pdf",
+        "label": "UT ADMINISTRATION BUILDING"
+      }
+    ]
+  },
+  "UTC": {
+    "name": "UNIVERSITY TEACHING CENTER",
+    "files": [
+      {
+        "filename": "UTC.pdf",
+        "label": "UNIVERSITY TEACHING CENTER"
+      }
+    ]
+  },
+  "UTX": {
+    "name": "ETTER-HARBIN ALUMNI CENTER",
+    "files": [
+      {
+        "filename": "UTX.pdf",
+        "label": "ETTER-HARBIN ALUMNI CENTER"
+      }
+    ]
+  },
+  "WAG": {
+    "name": "WAGGENER HALL",
+    "files": [
+      {
+        "filename": "WAG.pdf",
+        "label": "WAGGENER HALL"
+      }
+    ]
+  },
+  "WCH": {
+    "name": "WILL C. HOGG BLDG.",
+    "files": [
+      {
+        "filename": "WCH.pdf",
+        "label": "WILL C. HOGG BLDG."
+      }
+    ]
+  },
+  "WCP": {
+    "name": "WILLIAM C. POWERS, JR. SAC",
+    "files": [
+      {
+        "filename": "WCP.pdf",
+        "label": "WILLIAM C. POWERS, JR. SAC"
+      }
+    ]
+  },
+  "WEL": {
+    "name": "ROBERT A. WELCH HALL",
+    "files": [
+      {
+        "filename": "WEL.pdf",
+        "label": "ROBERT A. WELCH HALL"
+      }
+    ]
+  },
+  "WGB": {
+    "name": "WHITAKER GATEWAY BUILDING",
+    "files": [
+      {
+        "filename": "WGB.pdf",
+        "label": "WHITAKER GATEWAY BUILDING"
+      }
+    ]
+  },
+  "WIN": {
+    "name": "F.L. WINSHIP DRAMA BLDG.",
+    "files": [
+      {
+        "filename": "WIN.pdf",
+        "label": "F.L. WINSHIP DRAMA BLDG."
+      }
+    ]
+  },
+  "WMB": {
+    "name": "WEST MALL OFFICE BLDG.",
+    "files": [
+      {
+        "filename": "WMB.pdf",
+        "label": "WEST MALL OFFICE BLDG."
+      }
+    ]
+  },
+  "WWH": {
+    "name": "WALTER WEBB HALL",
+    "files": [
+      {
+        "filename": "WWH.pdf",
+        "label": "WALTER WEBB HALL"
+      }
+    ]
+  },
+  "ACB": {
+    "name": "ADVANCED COMPUTING BUILDING (205)",
+    "files": [
+      {
+        "filename": "ACB.pdf",
+        "label": "ADVANCED COMPUTING BUILDING (205)"
+      }
+    ]
+  },
+  "AS1": {
+    "name": "EXPL.SHOCK EQUIP. SHELTER (PRC 123)",
+    "files": [
+      {
+        "filename": "AS1.pdf",
+        "label": "EXPL.SHOCK EQUIP. SHELTER (PRC 123)"
+      }
+    ]
+  },
+  "AS2": {
+    "name": "SUB-SONIC WIND TUNNEL (PRC 124)",
+    "files": [
+      {
+        "filename": "AS2.pdf",
+        "label": "SUB-SONIC WIND TUNNEL (PRC 124)"
+      }
+    ]
+  },
+  "AS3": {
+    "name": "EXPLOSIVE SHOCK MECHANICS (PRC 7A)",
+    "files": [
+      {
+        "filename": "AS3.pdf",
+        "label": "EXPLOSIVE SHOCK MECHANICS (PRC 7A)"
+      }
+    ]
+  },
+  "AS4": {
+    "name": "AERO ENGR TEST FAC (PRC 124A)",
+    "files": [
+      {
+        "filename": "AS4.pdf",
+        "label": "AERO ENGR TEST FAC (PRC 124A)"
+      }
+    ]
+  },
+  "ASR": {
+    "name": "EXPERIMENTAL AERODYNAMICS (PRC 7)",
+    "files": [
+      {
+        "filename": "ASR.pdf",
+        "label": "EXPERIMENTAL AERODYNAMICS (PRC 7)"
+      }
+    ]
+  },
+  "BE1": {
+    "name": "BEG LAB BLDG (PRC 131)",
+    "files": [
+      {
+        "filename": "BE1.pdf",
+        "label": "BEG LAB BLDG (PRC 131)"
+      }
+    ]
+  },
+  "BE2": {
+    "name": "BEG. REPOSITORY (PRC 132)",
+    "files": [
+      {
+        "filename": "BE2.pdf",
+        "label": "BEG. REPOSITORY (PRC 132)"
+      }
+    ]
+  },
+  "BE3": {
+    "name": "BEG CORE RESEARCH BLDG (PRC 206)",
+    "files": [
+      {
+        "filename": "BE3.pdf",
+        "label": "BEG CORE RESEARCH BLDG (PRC 206)"
+      }
+    ]
+  },
+  "BEG": {
+    "name": "BEG MAIN BLDG (PRC 130)",
+    "files": [
+      {
+        "filename": "BEG.pdf",
+        "label": "BEG MAIN BLDG (PRC 130)"
+      }
+    ]
+  },
+  "CM1": {
+    "name": "CMRG CHEMICAL STG BLDG (PRC 186)",
+    "files": [
+      {
+        "filename": "CM1.pdf",
+        "label": "CMRG CHEMICAL STG BLDG (PRC 186)"
+      }
+    ]
+  },
+  "CM2": {
+    "name": "CMRG CONCRETE DURABIL. CTR.(PRC 26)",
+    "files": [
+      {
+        "filename": "CM2.pdf",
+        "label": "CMRG CONCRETE DURABIL. CTR.(PRC 26)"
+      }
+    ]
+  },
+  "CM3": {
+    "name": "CMRG-CONST.MATRLS.RES.GRP.(PRC 26A)",
+    "files": [
+      {
+        "filename": "CM3.pdf",
+        "label": "CMRG-CONST.MATRLS.RES.GRP.(PRC 26A)"
+      }
+    ]
+  },
+  "CM4": {
+    "name": "CMRG - RESEARCH OFFICES (PRC 201)",
+    "files": [
+      {
+        "filename": "CM4.pdf",
+        "label": "CMRG - RESEARCH OFFICES (PRC 201)"
+      }
+    ]
+  },
+  "CMR": {
+    "name": "CMRG CONCRETE DURABIL. CTR.(PRC18B)",
+    "files": [
+      {
+        "filename": "CMR.pdf",
+        "label": "CMRG CONCRETE DURABIL. CTR.(PRC18B)"
+      }
+    ]
+  },
+  "CPR": {
+    "name": "COLLECTIONS PRES & RESEARCH PRC 176",
+    "files": [
+      {
+        "filename": "CPR.pdf",
+        "label": "COLLECTIONS PRES & RESEARCH PRC 176"
+      }
+    ]
+  },
+  "CW1": {
+    "name": "CTR WATER RESOURCES-LAB (PRC 120)",
+    "files": [
+      {
+        "filename": "CW1.pdf",
+        "label": "CTR WATER RESOURCES-LAB (PRC 120)"
+      }
+    ]
+  },
+  "CW2": {
+    "name": "PHYSICAL MODELING BLDG. (PRC 3A)",
+    "files": [
+      {
+        "filename": "CW2.pdf",
+        "label": "PHYSICAL MODELING BLDG. (PRC 3A)"
+      }
+    ]
+  },
+  "CWE": {
+    "name": "CTR. WATER & ENVIRONMENT (PRC 119)",
+    "files": [
+      {
+        "filename": "CWE.pdf",
+        "label": "CTR. WATER & ENVIRONMENT (PRC 119)"
+      }
+    ]
+  },
+  "ECB": {
+    "name": "E.E.R.L./C.E.S.E. (PRC 16)",
+    "files": [
+      {
+        "filename": "ECB.pdf",
+        "label": "E.E.R.L./C.E.S.E. (PRC 16)"
+      }
+    ]
+  },
+  "EM1": {
+    "name": "CES BOILER BUILDING (PRC 134)",
+    "files": [
+      {
+        "filename": "EM1.pdf",
+        "label": "CES BOILER BUILDING (PRC 134)"
+      }
+    ]
+  },
+  "EM2": {
+    "name": "EME ANNEX (PRC 161)",
+    "files": [
+      {
+        "filename": "EM2.pdf",
+        "label": "EME ANNEX (PRC 161)"
+      }
+    ]
+  },
+  "EM3": {
+    "name": "CEM EXPLOSIVES (PRC 169)",
+    "files": [
+      {
+        "filename": "EM3.pdf",
+        "label": "CEM EXPLOSIVES (PRC 169)"
+      }
+    ]
+  },
+  "EME": {
+    "name": "ELEC MECH./ENGR.RES.CTR.(PRC 133)",
+    "files": [
+      {
+        "filename": "EME.pdf",
+        "label": "ELEC MECH./ENGR.RES.CTR.(PRC 133)"
+      }
+    ]
+  },
+  "FS1": {
+    "name": "FERGUSON ENGR LAB ANNEX (PRC 177)",
+    "files": [
+      {
+        "filename": "FS1.pdf",
+        "label": "FERGUSON ENGR LAB ANNEX (PRC 177)"
+      }
+    ]
+  },
+  "FS2": {
+    "name": "NEES@UTEXAS/FSL LAB ANNEX (PRC 46)",
+    "files": [
+      {
+        "filename": "FS2.pdf",
+        "label": "NEES@UTEXAS/FSL LAB ANNEX (PRC 46)"
+      }
+    ]
+  },
+  "FS3": {
+    "name": "FERGUSON LAB.-STRUCT.STRG.(PRC 24B)",
+    "files": [
+      {
+        "filename": "FS3.pdf",
+        "label": "FERGUSON LAB.-STRUCT.STRG.(PRC 24B)"
+      }
+    ]
+  },
+  "FS4": {
+    "name": "FERGUSON LAB-SUPP BLDG 4 (PRC 209)",
+    "files": [
+      {
+        "filename": "FS4.pdf",
+        "label": "FERGUSON LAB-SUPP BLDG 4 (PRC 209)"
+      }
+    ]
+  },
+  "FS5": {
+    "name": "FERGUSON LAB-SUPP BLDG 5 (PRC 210)",
+    "files": [
+      {
+        "filename": "FS5.pdf",
+        "label": "FERGUSON LAB-SUPP BLDG 5 (PRC 210)"
+      }
+    ]
+  },
+  "FS6": {
+    "name": "FERGUSON LAB-SUPP BLDG 6 (PRC 211)",
+    "files": [
+      {
+        "filename": "FS6.pdf",
+        "label": "FERGUSON LAB-SUPP BLDG 6 (PRC 211)"
+      }
+    ]
+  },
+  "FSL": {
+    "name": "FERGUSON LAB.- MAIN BLDG. (PRC 24)",
+    "files": [
+      {
+        "filename": "FSL.pdf",
+        "label": "FERGUSON LAB.- MAIN BLDG. (PRC 24)"
+      }
+    ]
+  },
+  "G13": {
+    "name": "GUARD KIOSK - NORTH GATE (PRC 154)",
+    "files": [
+      {
+        "filename": "G13.pdf",
+        "label": "GUARD KIOSK - NORTH GATE (PRC 154)"
+      }
+    ]
+  },
+  "G14": {
+    "name": "GUARD KIOSK - EAST GATE (PRC 155)",
+    "files": [
+      {
+        "filename": "G14.pdf",
+        "label": "GUARD KIOSK - EAST GATE (PRC 155)"
+      }
+    ]
+  },
+  "G15": {
+    "name": "GUARD KIOSK - SOUTH GATE (PRC 153)",
+    "files": [
+      {
+        "filename": "G15.pdf",
+        "label": "GUARD KIOSK - SOUTH GATE (PRC 153)"
+      }
+    ]
+  },
+  "HYD": {
+    "name": "CEM HYDROGEN DEMO SITE (PRC 214)",
+    "files": [
+      {
+        "filename": "HYD.pdf",
+        "label": "CEM HYDROGEN DEMO SITE (PRC 214)"
+      }
+    ]
+  },
+  "LCS": {
+    "name": "LSF COLD STORAGE CONT (PRC 213)",
+    "files": [
+      {
+        "filename": "LCS.pdf",
+        "label": "LSF COLD STORAGE CONT (PRC 213)"
+      }
+    ]
+  },
+  "ME1": {
+    "name": "MER SUPPORT BUILDING (PRC 179)",
+    "files": [
+      {
+        "filename": "ME1.pdf",
+        "label": "MER SUPPORT BUILDING (PRC 179)"
+      }
+    ]
+  },
+  "MER": {
+    "name": "MICROELECT.& ENGR.RES.CTR.(PRC 160)",
+    "files": [
+      {
+        "filename": "MER.pdf",
+        "label": "MICROELECT.& ENGR.RES.CTR.(PRC 160)"
+      }
+    ]
+  },
+  "NOB": {
+    "name": "NORTH OPERATIONS BUILDING (PRC 197)",
+    "files": [
+      {
+        "filename": "NOB.pdf",
+        "label": "NORTH OPERATIONS BUILDING (PRC 197)"
+      }
+    ]
+  },
+  "P15": {
+    "name": "PRC PHYSICAL PLANT ADMIN. (PRC 15)",
+    "files": [
+      {
+        "filename": "P15.pdf",
+        "label": "PRC PHYSICAL PLANT ADMIN. (PRC 15)"
+      }
+    ]
+  },
+  "P19": {
+    "name": "PRC CUSTODIAL/SAFETY/GUARDS (PRC19)",
+    "files": [
+      {
+        "filename": "P19.pdf",
+        "label": "PRC CUSTODIAL/SAFETY/GUARDS (PRC19)"
+      }
+    ]
+  },
+  "P25": {
+    "name": "PRC SUPPLY CENTER (PRC 25)",
+    "files": [
+      {
+        "filename": "P25.pdf",
+        "label": "PRC SUPPLY CENTER (PRC 25)"
+      }
+    ]
+  },
+  "P30": {
+    "name": "RECORDS STRG.#1-PETEX/K16C (PRC 30)",
+    "files": [
+      {
+        "filename": "P30.pdf",
+        "label": "RECORDS STRG.#1-PETEX/K16C (PRC 30)"
+      }
+    ]
+  },
+  "P33": {
+    "name": "RECOR.STRG.#2-PETEX/ET.AL. (PRC 33)",
+    "files": [
+      {
+        "filename": "P33.pdf",
+        "label": "RECOR.STRG.#2-PETEX/ET.AL. (PRC 33)"
+      }
+    ]
+  },
+  "P45": {
+    "name": "UT PHYSICAL PLANT WAREHOUSE (PRC45)",
+    "files": [
+      {
+        "filename": "P45.pdf",
+        "label": "UT PHYSICAL PLANT WAREHOUSE (PRC45)"
+      }
+    ]
+  },
+  "P51": {
+    "name": "PRC PHYSICAL PLANT STRG (PRC 51)",
+    "files": [
+      {
+        "filename": "P51.pdf",
+        "label": "PRC PHYSICAL PLANT STRG (PRC 51)"
+      }
+    ]
+  },
+  "P99": {
+    "name": "PRC PHYS.PLNT.GRD.MA.STRG.(PRC 99A)",
+    "files": [
+      {
+        "filename": "P99.pdf",
+        "label": "PRC PHYS.PLNT.GRD.MA.STRG.(PRC 99A)"
+      }
+    ]
+  },
+  "PC1": {
+    "name": "COMM TWR & MECH RM (PRC 171)",
+    "files": [
+      {
+        "filename": "PC1.pdf",
+        "label": "COMM TWR & MECH RM (PRC 171)"
+      }
+    ]
+  },
+  "PE1": {
+    "name": "PETROLEUM & GEOSYS. ENGR. (PRC 17)",
+    "files": [
+      {
+        "filename": "PE1.pdf",
+        "label": "PETROLEUM & GEOSYS. ENGR. (PRC 17)"
+      }
+    ]
+  },
+  "PPG": {
+    "name": "PHYSICAL PLANT GREENHOUSE (PRC 195)",
+    "files": [
+      {
+        "filename": "PPG.pdf",
+        "label": "PHYSICAL PLANT GREENHOUSE (PRC 195)"
+      }
+    ]
+  },
+  "PTV": {
+    "name": "PTV-TV SATELLITE STATION (PRC 126)",
+    "files": [
+      {
+        "filename": "PTV.pdf",
+        "label": "PTV-TV SATELLITE STATION (PRC 126)"
+      }
+    ]
+  },
+  "PX3": {
+    "name": "PETEX (PRC 2)",
+    "files": [
+      {
+        "filename": "PX3.pdf",
+        "label": "PETEX (PRC 2)"
+      }
+    ]
+  },
+  "ROC": {
+    "name": "RESEARCH OFFICE COMPLEX (PRC 196)",
+    "files": [
+      {
+        "filename": "ROC.pdf",
+        "label": "RESEARCH OFFICE COMPLEX (PRC 196)"
+      }
+    ]
+  },
+  "SV1": {
+    "name": "PRC SERVICE CTR TRADES (PRC 136)",
+    "files": [
+      {
+        "filename": "SV1.pdf",
+        "label": "PRC SERVICE CTR TRADES (PRC 136)"
+      }
+    ]
+  },
+  "SV2": {
+    "name": "PRC SVC.CTR./AUTO.&GRNDS. (PRC 135)",
+    "files": [
+      {
+        "filename": "SV2.pdf",
+        "label": "PRC SVC.CTR./AUTO.&GRNDS. (PRC 135)"
+      }
+    ]
+  },
+  "T5A": {
+    "name": "TARL MOD. UNIT 5A - GAULT (PRC 5A)",
+    "files": [
+      {
+        "filename": "T5A.pdf",
+        "label": "TARL MOD. UNIT 5A - GAULT (PRC 5A)"
+      }
+    ]
+  },
+  "T5B": {
+    "name": "TARL MOD UNIT 5B - MARL (PRC 5B)",
+    "files": [
+      {
+        "filename": "T5B.pdf",
+        "label": "TARL MOD UNIT 5B - MARL (PRC 5B)"
+      }
+    ]
+  },
+  "T5C": {
+    "name": "TARL MOD. UNIT 5C - OFFICE (PRC 5C)",
+    "files": [
+      {
+        "filename": "T5C.pdf",
+        "label": "TARL MOD. UNIT 5C - OFFICE (PRC 5C)"
+      }
+    ]
+  },
+  "T5D": {
+    "name": "TARL MOD. UNIT 5D - CLSRM (PRC 5D)",
+    "files": [
+      {
+        "filename": "T5D.pdf",
+        "label": "TARL MOD. UNIT 5D - CLSRM (PRC 5D)"
+      }
+    ]
+  },
+  "TAR": {
+    "name": "TEXAS ARCHEOLOGICAL RES. LAB(PRC 5)",
+    "files": [
+      {
+        "filename": "TAR.pdf",
+        "label": "TEXAS ARCHEOLOGICAL RES. LAB(PRC 5)"
+      }
+    ]
+  },
+  "TCB": {
+    "name": "J NEILS THOMPSON COMMONS (PRC 137)",
+    "files": [
+      {
+        "filename": "TCB.pdf",
+        "label": "J NEILS THOMPSON COMMONS (PRC 137)"
+      }
+    ]
+  },
+  "TM1": {
+    "name": "NON-VERT.PALEONTOLOGY LAB (PRC 122)",
+    "files": [
+      {
+        "filename": "TM1.pdf",
+        "label": "NON-VERT.PALEONTOLOGY LAB (PRC 122)"
+      }
+    ]
+  },
+  "TM2": {
+    "name": "TMM & MSI STORAGE (PRC 18A)",
+    "files": [
+      {
+        "filename": "TM2.pdf",
+        "label": "TMM & MSI STORAGE (PRC 18A)"
+      }
+    ]
+  },
+  "TRR": {
+    "name": "CNTR. TRANSPORTATION RES. (PRC 170)",
+    "files": [
+      {
+        "filename": "TRR.pdf",
+        "label": "CNTR. TRANSPORTATION RES. (PRC 170)"
+      }
+    ]
+  },
+  "VP1": {
+    "name": "VERT PALEONTOLOGY ANNEX (PRC 21)",
+    "files": [
+      {
+        "filename": "VP1.pdf",
+        "label": "VERT PALEONTOLOGY ANNEX (PRC 21)"
+      }
+    ]
+  },
+  "VP2": {
+    "name": "VERT PALEONTOLOGY ANNEX (PRC 21B)",
+    "files": [
+      {
+        "filename": "VP2.pdf",
+        "label": "VERT PALEONTOLOGY ANNEX (PRC 21B)"
+      }
+    ]
+  },
+  "VPL": {
+    "name": "VERTEBRATE PALEONTOLOGY (PRC 6)",
+    "files": [
+      {
+        "filename": "VPL.pdf",
+        "label": "VERTEBRATE PALEONTOLOGY (PRC 6)"
+      }
+    ]
+  },
+  "WPR": {
+    "name": "WEST PICKLE RESEARCH BLDG (PRC 156)",
+    "files": [
+      {
+        "filename": "WPR.pdf",
+        "label": "WEST PICKLE RESEARCH BLDG (PRC 156)"
+      }
+    ]
+  },
+  "MR1": {
+    "name": "MONTOPOLIS OFFICE TOWER",
+    "files": [
+      {
+        "filename": "MR1.pdf",
+        "label": "MONTOPOLIS OFFICE TOWER"
+      }
+    ]
+  },
+  "MR2": {
+    "name": "MONTOPOLIS FABRICATION BUILDING",
+    "files": [
+      {
+        "filename": "MR2.pdf",
+        "label": "MONTOPOLIS FABRICATION BUILDING"
+      }
+    ]
+  },
+  "CCC": {
+    "name": "CAPITOL COMPLEX CHILD DEV CTR",
+    "files": [
+      {
+        "filename": "CCC.pdf",
+        "label": "CAPITOL COMPLEX CHILD DEV CTR"
+      }
+    ]
+  },
+  "DI1": {
+    "name": "DISCOVERY TO IMPACT INNOVATION TWR",
+    "files": [
+      {
+        "filename": "DI1.pdf",
+        "label": "DISCOVERY TO IMPACT INNOVATION TWR"
+      }
+    ]
+  },
+  "DI2": {
+    "name": "DISCOVERY TO IMPACT INNOVATION LAB",
+    "files": [
+      {
+        "filename": "DI2.pdf",
+        "label": "DISCOVERY TO IMPACT INNOVATION LAB"
+      }
+    ]
+  },
+  "JCB": {
+    "name": "JOHN S. & DRUCIE CHASE BUILDING",
+    "files": [
+      {
+        "filename": "JCB.pdf",
+        "label": "JOHN S. & DRUCIE CHASE BUILDING"
+      }
+    ]
+  },
+  "KU2": {
+    "name": "KUTX-FM TRANSMITTER BLDG (1013180)",
+    "files": [
+      {
+        "filename": "KU2.pdf",
+        "label": "KUTX-FM TRANSMITTER BLDG (1013180)"
+      }
+    ]
+  },
+  "F01": {
+    "name": "BFL - BOAT HOUSE",
+    "files": [
+      {
+        "filename": "F01.pdf",
+        "label": "BFL - BOAT HOUSE"
+      }
+    ]
+  },
+  "F02": {
+    "name": "BFL - WELL HOUSE NO. 1",
+    "files": [
+      {
+        "filename": "F02.pdf",
+        "label": "BFL - WELL HOUSE NO. 1"
+      }
+    ]
+  },
+  "F03": {
+    "name": "BFL - WELL HOUSE NO. 2",
+    "files": [
+      {
+        "filename": "F03.pdf",
+        "label": "BFL - WELL HOUSE NO. 2"
+      }
+    ]
+  },
+  "F04": {
+    "name": "BFL - BUSH GREENHOUSE",
+    "files": [
+      {
+        "filename": "F04.pdf",
+        "label": "BFL - BUSH GREENHOUSE"
+      }
+    ]
+  },
+  "F17": {
+    "name": "BFL - GREENHOUSE NO. 1",
+    "files": [
+      {
+        "filename": "F17.pdf",
+        "label": "BFL - GREENHOUSE NO. 1"
+      }
+    ]
+  },
+  "F18": {
+    "name": "BFL - GREENHOUSE NO 2",
+    "files": [
+      {
+        "filename": "F18.pdf",
+        "label": "BFL - GREENHOUSE NO 2"
+      }
+    ]
+  },
+  "F19": {
+    "name": "BFL - GREENHOUSE NO. 5",
+    "files": [
+      {
+        "filename": "F19.pdf",
+        "label": "BFL - GREENHOUSE NO. 5"
+      }
+    ]
+  },
+  "F20": {
+    "name": "BIO. SCI. EXP. FIELD LAB.",
+    "files": [
+      {
+        "filename": "F20.pdf",
+        "label": "BIO. SCI. EXP. FIELD LAB."
+      }
+    ]
+  },
+  "F21": {
+    "name": "BFL - TROPICAL GREENHOUSE",
+    "files": [
+      {
+        "filename": "F21.pdf",
+        "label": "BFL - TROPICAL GREENHOUSE"
+      }
+    ]
+  },
+  "F22": {
+    "name": "BFL - GREENHOUSE F22-1",
+    "files": [
+      {
+        "filename": "F22.pdf",
+        "label": "BFL - GREENHOUSE F22-1"
+      }
+    ]
+  },
+  "F34": {
+    "name": "BFL - AVIARY BUILDING",
+    "files": [
+      {
+        "filename": "F34.pdf",
+        "label": "BFL - AVIARY BUILDING"
+      }
+    ]
+  },
+  "F36": {
+    "name": "BFL - APHID GREENHOUSE",
+    "files": [
+      {
+        "filename": "F36.pdf",
+        "label": "BFL - APHID GREENHOUSE"
+      }
+    ]
+  },
+  "F42": {
+    "name": "BFL - WELL HOUSE NO. 3",
+    "files": [
+      {
+        "filename": "F42.pdf",
+        "label": "BFL - WELL HOUSE NO. 3"
+      }
+    ]
+  },
+  "L01": {
+    "name": "JWC - ADMIN & LIBRARY",
+    "files": [
+      {
+        "filename": "L01.pdf",
+        "label": "JWC - ADMIN & LIBRARY"
+      }
+    ]
+  },
+  "L02": {
+    "name": "JWC - AUDITORIUM & GALLERY",
+    "files": [
+      {
+        "filename": "L02.pdf",
+        "label": "JWC - AUDITORIUM & GALLERY"
+      }
+    ]
+  },
+  "L03": {
+    "name": "JWC - STORE",
+    "files": [
+      {
+        "filename": "L03.pdf",
+        "label": "JWC - STORE"
+      }
+    ]
+  },
+  "L04": {
+    "name": "JWC - TOWER & CAFE",
+    "files": [
+      {
+        "filename": "L04.pdf",
+        "label": "JWC - TOWER & CAFE"
+      }
+    ]
+  },
+  "L05": {
+    "name": "JWC - LITTLE HOUSE",
+    "files": [
+      {
+        "filename": "L05.pdf",
+        "label": "JWC - LITTLE HOUSE"
+      }
+    ]
+  },
+  "L06": {
+    "name": "JWC - MCDERMOTT LEARNING CENTER",
+    "files": [
+      {
+        "filename": "L06.pdf",
+        "label": "JWC - MCDERMOTT LEARNING CENTER"
+      }
+    ]
+  },
+  "L07": {
+    "name": "JWC - POLE BARN",
+    "files": [
+      {
+        "filename": "L07.pdf",
+        "label": "JWC - POLE BARN"
+      }
+    ]
+  },
+  "L08": {
+    "name": "JWC - OUTDOOR RESTROOMS",
+    "files": [
+      {
+        "filename": "L08.pdf",
+        "label": "JWC - OUTDOOR RESTROOMS"
+      }
+    ]
+  },
+  "L09": {
+    "name": "JWC - GREENHOUSE #1",
+    "files": [
+      {
+        "filename": "L09.pdf",
+        "label": "JWC - GREENHOUSE #1"
+      }
+    ]
+  },
+  "L10": {
+    "name": "JWC - GREENHOUSE #2",
+    "files": [
+      {
+        "filename": "L10.pdf",
+        "label": "JWC - GREENHOUSE #2"
+      }
+    ]
+  },
+  "L11": {
+    "name": "JWC - RESEARCH BUILDING",
+    "files": [
+      {
+        "filename": "L11.pdf",
+        "label": "JWC - RESEARCH BUILDING"
+      }
+    ]
+  },
+  "L12": {
+    "name": "JWC - GUARD HOUSE",
+    "files": [
+      {
+        "filename": "L12.pdf",
+        "label": "JWC - GUARD HOUSE"
+      }
+    ]
+  },
+  "L13": {
+    "name": "JWC - PUMP HOUSE",
+    "files": [
+      {
+        "filename": "L13.pdf",
+        "label": "JWC - PUMP HOUSE"
+      }
+    ]
+  },
+  "L14": {
+    "name": "JWC - HAZMAT SHED",
+    "files": [
+      {
+        "filename": "L14.pdf",
+        "label": "JWC - HAZMAT SHED"
+      }
+    ]
+  },
+  "L15": {
+    "name": "JWC - INSECTARY",
+    "files": [
+      {
+        "filename": "L15.pdf",
+        "label": "JWC - INSECTARY"
+      }
+    ]
+  },
+  "L16": {
+    "name": "JWC - FAMILY GARDEN RESTROOMS",
+    "files": [
+      {
+        "filename": "L16.pdf",
+        "label": "JWC - FAMILY GARDEN RESTROOMS"
+      }
+    ]
+  },
+  "L17": {
+    "name": "JWC - FAMILY GARDEN PUMP ROOM",
+    "files": [
+      {
+        "filename": "L17.pdf",
+        "label": "JWC - FAMILY GARDEN PUMP ROOM"
+      }
+    ]
+  },
+  "L18": {
+    "name": "JWC - FAMILY GARDEN PAVILION",
+    "files": [
+      {
+        "filename": "L18.pdf",
+        "label": "JWC - FAMILY GARDEN PAVILION"
+      }
+    ]
+  },
+  "L19": {
+    "name": "JWC - ADMISSIONS KIOSK",
+    "files": [
+      {
+        "filename": "L19.pdf",
+        "label": "JWC - ADMISSIONS KIOSK"
+      }
+    ]
+  },
+  "M01": {
+    "name": "MCD - RANCH PUMP BUILDING",
+    "files": [
+      {
+        "filename": "M01.pdf",
+        "label": "MCD - RANCH PUMP BUILDING"
+      }
+    ]
+  },
+  "M02": {
+    "name": "MCD - INT. WATER  XFER. PUMP BLDG",
+    "files": [
+      {
+        "filename": "M02.pdf",
+        "label": "MCD - INT. WATER  XFER. PUMP BLDG"
+      }
+    ]
+  },
+  "M03": {
+    "name": "MCD - FIRE PUMP & CHLOR. BLDG",
+    "files": [
+      {
+        "filename": "M03.pdf",
+        "label": "MCD - FIRE PUMP & CHLOR. BLDG"
+      }
+    ]
+  },
+  "M04": {
+    "name": "MCD - WEIGHT ROOM",
+    "files": [
+      {
+        "filename": "M04.pdf",
+        "label": "MCD - WEIGHT ROOM"
+      }
+    ]
+  },
+  "M07": {
+    "name": "MCD- PHYSICAL PLANT/FIRE TRUCK BLDG",
+    "files": [
+      {
+        "filename": "M07.pdf",
+        "label": "MCD- PHYSICAL PLANT/FIRE TRUCK BLDG"
+      }
+    ]
+  },
+  "M10": {
+    "name": "MCD - PUMP HOUSE GARAGE",
+    "files": [
+      {
+        "filename": "M10.pdf",
+        "label": "MCD - PUMP HOUSE GARAGE"
+      }
+    ]
+  },
+  "M13": {
+    "name": "MCD - ASTRONOMERS LODGE",
+    "files": [
+      {
+        "filename": "M13.pdf",
+        "label": "MCD - ASTRONOMERS LODGE"
+      }
+    ]
+  },
+  "M14": {
+    "name": "MCD - RADIO REPEATER SHACK",
+    "files": [
+      {
+        "filename": "M14.pdf",
+        "label": "MCD - RADIO REPEATER SHACK"
+      }
+    ]
+  },
+  "M15": {
+    "name": "MCD - W. L. MOODY CENTER",
+    "files": [
+      {
+        "filename": "M15.pdf",
+        "label": "MCD - W. L. MOODY CENTER"
+      }
+    ]
+  },
+  "M16": {
+    "name": "MCD - DAVID BOOTH DIRECTOR'S HOUSE",
+    "files": [
+      {
+        "filename": "M16.pdf",
+        "label": "MCD - DAVID BOOTH DIRECTOR'S HOUSE"
+      }
+    ]
+  },
+  "M17": {
+    "name": "MCD - HOUSE B & GARAGE (4 BR)",
+    "files": [
+      {
+        "filename": "M17.pdf",
+        "label": "MCD - HOUSE B & GARAGE (4 BR)"
+      }
+    ]
+  },
+  "M18": {
+    "name": "MCD - HOUSE C (3 BR)",
+    "files": [
+      {
+        "filename": "M18.pdf",
+        "label": "MCD - HOUSE C (3 BR)"
+      }
+    ]
+  },
+  "M19": {
+    "name": "MCD - PHYSICAL PLANT SHOP BLDG",
+    "files": [
+      {
+        "filename": "M19.pdf",
+        "label": "MCD - PHYSICAL PLANT SHOP BLDG"
+      }
+    ]
+  },
+  "M20": {
+    "name": "MCD - HOUSE E (2 BR)",
+    "files": [
+      {
+        "filename": "M20.pdf",
+        "label": "MCD - HOUSE E (2 BR)"
+      }
+    ]
+  },
+  "M21": {
+    "name": "MCD - HOUSE F & GARAGE (2 BR)",
+    "files": [
+      {
+        "filename": "M21.pdf",
+        "label": "MCD - HOUSE F & GARAGE (2 BR)"
+      }
+    ]
+  },
+  "M22": {
+    "name": "MCD - COTTAGE (STUDIO)",
+    "files": [
+      {
+        "filename": "M22.pdf",
+        "label": "MCD - COTTAGE (STUDIO)"
+      }
+    ]
+  },
+  "M23": {
+    "name": "MCD - HOUSE H (3 BR)",
+    "files": [
+      {
+        "filename": "M23.pdf",
+        "label": "MCD - HOUSE H (3 BR)"
+      }
+    ]
+  },
+  "M24": {
+    "name": "MCD - HOUSE I & GARAGE (2 BR)",
+    "files": [
+      {
+        "filename": "M24.pdf",
+        "label": "MCD - HOUSE I & GARAGE (2 BR)"
+      }
+    ]
+  },
+  "M26": {
+    "name": "MCD - HOUSE L (3 BR)",
+    "files": [
+      {
+        "filename": "M26.pdf",
+        "label": "MCD - HOUSE L (3 BR)"
+      }
+    ]
+  },
+  "M27": {
+    "name": "MCD - WELL PUMP BUILDING",
+    "files": [
+      {
+        "filename": "M27.pdf",
+        "label": "MCD - WELL PUMP BUILDING"
+      }
+    ]
+  },
+  "M28": {
+    "name": "MCD - STORAGE BUILDING R",
+    "files": [
+      {
+        "filename": "M28.pdf",
+        "label": "MCD - STORAGE BUILDING R"
+      }
+    ]
+  },
+  "M31": {
+    "name": "MCD - 30\" TELESCOPE DOME BLDG",
+    "files": [
+      {
+        "filename": "M31.pdf",
+        "label": "MCD - 30\" TELESCOPE DOME BLDG"
+      }
+    ]
+  },
+  "M32": {
+    "name": "MCD - 36\" TELESCOPE DOME BLDG",
+    "files": [
+      {
+        "filename": "M32.pdf",
+        "label": "MCD - 36\" TELESCOPE DOME BLDG"
+      }
+    ]
+  },
+  "M33": {
+    "name": "MCD - 82\" TELESCOPE DOME BLDG",
+    "files": [
+      {
+        "filename": "M33.pdf",
+        "label": "MCD - 82\" TELESCOPE DOME BLDG"
+      }
+    ]
+  },
+  "M34": {
+    "name": "MCD - HARLAN J. SMITH TELESCOPE",
+    "files": [
+      {
+        "filename": "M34.pdf",
+        "label": "MCD - HARLAN J. SMITH TELESCOPE"
+      }
+    ]
+  },
+  "M35": {
+    "name": "MCD - HOUSE & GARAGE NO. 1 (4 BR)",
+    "files": [
+      {
+        "filename": "M35.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 1 (4 BR)"
+      }
+    ]
+  },
+  "M36": {
+    "name": "MCD - HOUSE & GARAGE NO. 2 (4 BR)",
+    "files": [
+      {
+        "filename": "M36.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 2 (4 BR)"
+      }
+    ]
+  },
+  "M37": {
+    "name": "MCD - HOUSE & GARAGE NO. 4 (4 BR)",
+    "files": [
+      {
+        "filename": "M37.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 4 (4 BR)"
+      }
+    ]
+  },
+  "M38": {
+    "name": "MCD - HOUSE & GARAGE NO. 5 (4 BR)",
+    "files": [
+      {
+        "filename": "M38.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 5 (4 BR)"
+      }
+    ]
+  },
+  "M39": {
+    "name": "MCD - HOUSE & GARAGE NO. 6 (4 BR)",
+    "files": [
+      {
+        "filename": "M39.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 6 (4 BR)"
+      }
+    ]
+  },
+  "M40": {
+    "name": "MCD - HOUSE & GARAGE NO. 7 (4 BR)",
+    "files": [
+      {
+        "filename": "M40.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 7 (4 BR)"
+      }
+    ]
+  },
+  "M41": {
+    "name": "MCD - HOUSE & GARAGE NO. 8 (4 BR)",
+    "files": [
+      {
+        "filename": "M41.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 8 (4 BR)"
+      }
+    ]
+  },
+  "M42": {
+    "name": "MCD - HOUSE & GARAGE NO. 9 (4 BR)",
+    "files": [
+      {
+        "filename": "M42.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 9 (4 BR)"
+      }
+    ]
+  },
+  "M43": {
+    "name": "MCD - HOUSE & GARAGE NO. 10 (4 BR)",
+    "files": [
+      {
+        "filename": "M43.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 10 (4 BR)"
+      }
+    ]
+  },
+  "M44": {
+    "name": "MCD - HOUSE & GARAGE NO. 11 (4 BR)",
+    "files": [
+      {
+        "filename": "M44.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 11 (4 BR)"
+      }
+    ]
+  },
+  "M45": {
+    "name": "MCD - HOUSE & GARAGE NO. 12 (4 BR)",
+    "files": [
+      {
+        "filename": "M45.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 12 (4 BR)"
+      }
+    ]
+  },
+  "M46": {
+    "name": "MCD - HOUSE & GARAGE NO. 13 (4 BR)",
+    "files": [
+      {
+        "filename": "M46.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 13 (4 BR)"
+      }
+    ]
+  },
+  "M47": {
+    "name": "MCD - HOUSE & GARAGE NO. 14 (4 BR)",
+    "files": [
+      {
+        "filename": "M47.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 14 (4 BR)"
+      }
+    ]
+  },
+  "M48": {
+    "name": "MCD - HOUSE & GARAGE NO. 15 (4 BR)",
+    "files": [
+      {
+        "filename": "M48.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 15 (4 BR)"
+      }
+    ]
+  },
+  "M49": {
+    "name": "MCD - HOUSE & GARAGE NO. 16 (4 BR)",
+    "files": [
+      {
+        "filename": "M49.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 16 (4 BR)"
+      }
+    ]
+  },
+  "M50": {
+    "name": "MCD - HOUSE M (1 BR)",
+    "files": [
+      {
+        "filename": "M50.pdf",
+        "label": "MCD - HOUSE M (1 BR)"
+      }
+    ]
+  },
+  "M51": {
+    "name": "MCD - HANGER 18 (STORAGE BLDG)",
+    "files": [
+      {
+        "filename": "M51.pdf",
+        "label": "MCD - HANGER 18 (STORAGE BLDG)"
+      }
+    ]
+  },
+  "M52": {
+    "name": "MCD - VISITOR CENTER STORAGE BLDG",
+    "files": [
+      {
+        "filename": "M52.pdf",
+        "label": "MCD - VISITOR CENTER STORAGE BLDG"
+      }
+    ]
+  },
+  "M53": {
+    "name": "MCD - HOBBY-EBERLY TELESCOPE",
+    "files": [
+      {
+        "filename": "M53.pdf",
+        "label": "MCD - HOBBY-EBERLY TELESCOPE"
+      }
+    ]
+  },
+  "M54": {
+    "name": "MCD - HOUSE & GARAGE NO. 3 (3 BR)",
+    "files": [
+      {
+        "filename": "M54.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 3 (3 BR)"
+      }
+    ]
+  },
+  "M55": {
+    "name": "MCD - HOUSE & GARAGE NO. 17 (3 BR)",
+    "files": [
+      {
+        "filename": "M55.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 17 (3 BR)"
+      }
+    ]
+  },
+  "M57": {
+    "name": "MCD - HOUSE & GARAGE NO. 19 (3 BR)",
+    "files": [
+      {
+        "filename": "M57.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 19 (3 BR)"
+      }
+    ]
+  },
+  "M58": {
+    "name": "MCD - HOUSE & GARAGE NO. 20 (3 BR)",
+    "files": [
+      {
+        "filename": "M58.pdf",
+        "label": "MCD - HOUSE & GARAGE NO. 20 (3 BR)"
+      }
+    ]
+  },
+  "M59": {
+    "name": "MCD - MOBILE HOME NO. 1 (2 BR)",
+    "files": [
+      {
+        "filename": "M59.pdf",
+        "label": "MCD - MOBILE HOME NO. 1 (2 BR)"
+      }
+    ]
+  },
+  "M60": {
+    "name": "MCD - MOBILE HOME NO. 2 (2 BR)",
+    "files": [
+      {
+        "filename": "M60.pdf",
+        "label": "MCD - MOBILE HOME NO. 2 (2 BR)"
+      }
+    ]
+  },
+  "M61": {
+    "name": "MCD - MOBILE HOME NO. 3 (2 BR)",
+    "files": [
+      {
+        "filename": "M61.pdf",
+        "label": "MCD - MOBILE HOME NO. 3 (2 BR)"
+      }
+    ]
+  },
+  "M62": {
+    "name": "MCD - MOBILE HOME NO. 4 (2 BR)",
+    "files": [
+      {
+        "filename": "M62.pdf",
+        "label": "MCD - MOBILE HOME NO. 4 (2 BR)"
+      }
+    ]
+  },
+  "M63": {
+    "name": "MCD - FRANK N BASH VISITORS CENTER",
+    "files": [
+      {
+        "filename": "M63.pdf",
+        "label": "MCD - FRANK N BASH VISITORS CENTER"
+      }
+    ]
+  },
+  "M64": {
+    "name": "MRLS LASER VAN",
+    "files": [
+      {
+        "filename": "M64.pdf",
+        "label": "MRLS LASER VAN"
+      }
+    ]
+  },
+  "M65": {
+    "name": "MGO ANNEX FACILITY",
+    "files": [
+      {
+        "filename": "M65.pdf",
+        "label": "MGO ANNEX FACILITY"
+      }
+    ]
+  },
+  "M66": {
+    "name": "MGO OFFICE FACILITY",
+    "files": [
+      {
+        "filename": "M66.pdf",
+        "label": "MGO OFFICE FACILITY"
+      }
+    ]
+  },
+  "M67": {
+    "name": "MCD - HET SUPPORT BUILDING",
+    "files": [
+      {
+        "filename": "M67.pdf",
+        "label": "MCD - HET SUPPORT BUILDING"
+      }
+    ]
+  },
+  "M68": {
+    "name": "MCD- EDUCATION CTR TELESCOPE DOME 1",
+    "files": [
+      {
+        "filename": "M68.pdf",
+        "label": "MCD- EDUCATION CTR TELESCOPE DOME 1"
+      }
+    ]
+  },
+  "M69": {
+    "name": "MCD- EDUCATION CTR TELESCOPE DOME 2",
+    "files": [
+      {
+        "filename": "M69.pdf",
+        "label": "MCD- EDUCATION CTR TELESCOPE DOME 2"
+      }
+    ]
+  },
+  "M70": {
+    "name": "MCD - MOODY CTR 14\" TELESCOPE BLDG",
+    "files": [
+      {
+        "filename": "M70.pdf",
+        "label": "MCD - MOODY CTR 14\" TELESCOPE BLDG"
+      }
+    ]
+  },
+  "M71": {
+    "name": "MCD - MOODY CTR 16\" TELESCOPE BLDG",
+    "files": [
+      {
+        "filename": "M71.pdf",
+        "label": "MCD - MOODY CTR 16\" TELESCOPE BLDG"
+      }
+    ]
+  },
+  "M72": {
+    "name": "MCD - MONET DOME BUILDING",
+    "files": [
+      {
+        "filename": "M72.pdf",
+        "label": "MCD - MONET DOME BUILDING"
+      }
+    ]
+  },
+  "M74": {
+    "name": "MCD - BLOOM HOUSE (1BR)",
+    "files": [
+      {
+        "filename": "M74.pdf",
+        "label": "MCD - BLOOM HOUSE (1BR)"
+      }
+    ]
+  },
+  "M75": {
+    "name": "MCD - BOSTON DOME & CONTROL BLDGS",
+    "files": [
+      {
+        "filename": "M75.pdf",
+        "label": "MCD - BOSTON DOME & CONTROL BLDGS"
+      }
+    ]
+  },
+  "M76": {
+    "name": "MCD - TRANSFORMER BLDG",
+    "files": [
+      {
+        "filename": "M76.pdf",
+        "label": "MCD - TRANSFORMER BLDG"
+      }
+    ]
+  },
+  "M77": {
+    "name": "MCD- EDUCATION CTR TELESCOPE DOME 3",
+    "files": [
+      {
+        "filename": "M77.pdf",
+        "label": "MCD- EDUCATION CTR TELESCOPE DOME 3"
+      }
+    ]
+  },
+  "M78": {
+    "name": "MCD - HET MECHANICAL BUILDING",
+    "files": [
+      {
+        "filename": "M78.pdf",
+        "label": "MCD - HET MECHANICAL BUILDING"
+      }
+    ]
+  },
+  "M79": {
+    "name": "MCD - HET WEATHER STATION",
+    "files": [
+      {
+        "filename": "M79.pdf",
+        "label": "MCD - HET WEATHER STATION"
+      }
+    ]
+  },
+  "M80": {
+    "name": "MCD - WATER TREATMENT BUILDING",
+    "files": [
+      {
+        "filename": "M80.pdf",
+        "label": "MCD - WATER TREATMENT BUILDING"
+      }
+    ]
+  },
+  "M81": {
+    "name": "MCD - PHYSICAL PLANT SUPPORT BLDG",
+    "files": [
+      {
+        "filename": "M81.pdf",
+        "label": "MCD - PHYSICAL PLANT SUPPORT BLDG"
+      }
+    ]
+  },
+  "M82": {
+    "name": "MCD - NEXUS HAUS (1 BR)",
+    "files": [
+      {
+        "filename": "M82.pdf",
+        "label": "MCD - NEXUS HAUS (1 BR)"
+      }
+    ]
+  },
+  "M83": {
+    "name": "MCD - MOBILE HOME NO. 5 (2 BR)",
+    "files": [
+      {
+        "filename": "M83.pdf",
+        "label": "MCD - MOBILE HOME NO. 5 (2 BR)"
+      }
+    ]
+  },
+  "M84": {
+    "name": "MCD - MOBILE HOME NO. 6 (2 BR)",
+    "files": [
+      {
+        "filename": "M84.pdf",
+        "label": "MCD - MOBILE HOME NO. 6 (2 BR)"
+      }
+    ]
+  },
+  "M85": {
+    "name": "MCD - POOL SUPPORT BUILDING",
+    "files": [
+      {
+        "filename": "M85.pdf",
+        "label": "MCD - POOL SUPPORT BUILDING"
+      }
+    ]
+  },
+  "M86": {
+    "name": "MCD - VLBI CONTROL BUILDING",
+    "files": [
+      {
+        "filename": "M86.pdf",
+        "label": "MCD - VLBI CONTROL BUILDING"
+      }
+    ]
+  },
+  "M87": {
+    "name": "MCD - MGO SGSLR BUILDING",
+    "files": [
+      {
+        "filename": "M87.pdf",
+        "label": "MCD - MGO SGSLR BUILDING"
+      }
+    ]
+  },
+  "M88": {
+    "name": "MCD - SADDLE PUMP HOUSE",
+    "files": [
+      {
+        "filename": "M88.pdf",
+        "label": "MCD - SADDLE PUMP HOUSE"
+      }
+    ]
+  },
+  "M89": {
+    "name": "MCD - SADDLE CHLORINATION BLDG",
+    "files": [
+      {
+        "filename": "M89.pdf",
+        "label": "MCD - SADDLE CHLORINATION BLDG"
+      }
+    ]
+  },
+  "M90": {
+    "name": "MCD - MOUNT LOCKE CHLORINATION BLDG",
+    "files": [
+      {
+        "filename": "M90.pdf",
+        "label": "MCD - MOUNT LOCKE CHLORINATION BLDG"
+      }
+    ]
+  },
+  "M91": {
+    "name": "MCD - MOUNT FOWLKES SURGE TANK",
+    "files": [
+      {
+        "filename": "M91.pdf",
+        "label": "MCD - MOUNT FOWLKES SURGE TANK"
+      }
+    ]
+  },
+  "S02": {
+    "name": "CAFETERIA",
+    "files": [
+      {
+        "filename": "S02.pdf",
+        "label": "CAFETERIA"
+      }
+    ]
+  },
+  "S06": {
+    "name": "MAIN ADMINISTRATION BUILDING",
+    "files": [
+      {
+        "filename": "S06.pdf",
+        "label": "MAIN ADMINISTRATION BUILDING"
+      }
+    ]
+  },
+  "S08": {
+    "name": "MARINE OPERATIONS",
+    "files": [
+      {
+        "filename": "S08.pdf",
+        "label": "MARINE OPERATIONS"
+      }
+    ]
+  },
+  "S12": {
+    "name": "PHYSICAL PLANT - MAINTENANCE",
+    "files": [
+      {
+        "filename": "S12.pdf",
+        "label": "PHYSICAL PLANT - MAINTENANCE"
+      }
+    ]
+  },
+  "S13": {
+    "name": "MAIN RESEARCH BUILDING",
+    "files": [
+      {
+        "filename": "S13.pdf",
+        "label": "MAIN RESEARCH BUILDING"
+      }
+    ]
+  },
+  "S14": {
+    "name": "DORMITORY",
+    "files": [
+      {
+        "filename": "S14.pdf",
+        "label": "DORMITORY"
+      }
+    ]
+  },
+  "S15": {
+    "name": "BEACH STREET APTS",
+    "files": [
+      {
+        "filename": "S15.pdf",
+        "label": "BEACH STREET APTS"
+      }
+    ]
+  },
+  "S19": {
+    "name": "SEAWATER CLARIFIER",
+    "files": [
+      {
+        "filename": "S19.pdf",
+        "label": "SEAWATER CLARIFIER"
+      }
+    ]
+  },
+  "S20": {
+    "name": "FISHERIES & MARICULTURE LAB (FAML)",
+    "files": [
+      {
+        "filename": "S20.pdf",
+        "label": "FISHERIES & MARICULTURE LAB (FAML)"
+      }
+    ]
+  },
+  "S22": {
+    "name": "FAML SMALL TANK LABS",
+    "files": [
+      {
+        "filename": "S22.pdf",
+        "label": "FAML SMALL TANK LABS"
+      }
+    ]
+  },
+  "S23": {
+    "name": "WILSON COTTAGE NO. 1",
+    "files": [
+      {
+        "filename": "S23.pdf",
+        "label": "WILSON COTTAGE NO. 1"
+      }
+    ]
+  },
+  "S24": {
+    "name": "WILSON COTTAGE NO. 6",
+    "files": [
+      {
+        "filename": "S24.pdf",
+        "label": "WILSON COTTAGE NO. 6"
+      }
+    ]
+  },
+  "S25": {
+    "name": "WILSON COTTAGE NO. 5",
+    "files": [
+      {
+        "filename": "S25.pdf",
+        "label": "WILSON COTTAGE NO. 5"
+      }
+    ]
+  },
+  "S26": {
+    "name": "WILSON COTTAGE NO. 4",
+    "files": [
+      {
+        "filename": "S26.pdf",
+        "label": "WILSON COTTAGE NO. 4"
+      }
+    ]
+  },
+  "S27": {
+    "name": "WILSON COTTAGE NO. 3",
+    "files": [
+      {
+        "filename": "S27.pdf",
+        "label": "WILSON COTTAGE NO. 3"
+      }
+    ]
+  },
+  "S28": {
+    "name": "WILSON COTTAGE NO. 2",
+    "files": [
+      {
+        "filename": "S28.pdf",
+        "label": "WILSON COTTAGE NO. 2"
+      }
+    ]
+  },
+  "S31": {
+    "name": "RADIOACTIVE WASTE STORAGE BUILDING",
+    "files": [
+      {
+        "filename": "S31.pdf",
+        "label": "RADIOACTIVE WASTE STORAGE BUILDING"
+      }
+    ]
+  },
+  "S32": {
+    "name": "MARINE SCIENCE EDUCATION CENTER",
+    "files": [
+      {
+        "filename": "S32.pdf",
+        "label": "MARINE SCIENCE EDUCATION CENTER"
+      }
+    ]
+  },
+  "S39": {
+    "name": "FAML LAB/GARAGES",
+    "files": [
+      {
+        "filename": "S39.pdf",
+        "label": "FAML LAB/GARAGES"
+      }
+    ]
+  },
+  "S44": {
+    "name": "PIER TEACHING LAB",
+    "files": [
+      {
+        "filename": "S44.pdf",
+        "label": "PIER TEACHING LAB"
+      }
+    ]
+  },
+  "S45": {
+    "name": "WAREHOUSE",
+    "files": [
+      {
+        "filename": "S45.pdf",
+        "label": "WAREHOUSE"
+      }
+    ]
+  },
+  "S46": {
+    "name": "ARK TURTLE BUILDING",
+    "files": [
+      {
+        "filename": "S46.pdf",
+        "label": "ARK TURTLE BUILDING"
+      }
+    ]
+  },
+  "S49": {
+    "name": "FAML PUMP SHED",
+    "files": [
+      {
+        "filename": "S49.pdf",
+        "label": "FAML PUMP SHED"
+      }
+    ]
+  },
+  "S54": {
+    "name": "R/V KATY PAVILION",
+    "files": [
+      {
+        "filename": "S54.pdf",
+        "label": "R/V KATY PAVILION"
+      }
+    ]
+  },
+  "S55": {
+    "name": "ARK TURTLE ANNEX",
+    "files": [
+      {
+        "filename": "S55.pdf",
+        "label": "ARK TURTLE ANNEX"
+      }
+    ]
+  },
+  "S58": {
+    "name": "PHYSICAL PLANT GARAGE - RESEARCH",
+    "files": [
+      {
+        "filename": "S58.pdf",
+        "label": "PHYSICAL PLANT GARAGE - RESEARCH"
+      }
+    ]
+  },
+  "S60": {
+    "name": "PHYSICAL PLANT - GROUNDS",
+    "files": [
+      {
+        "filename": "S60.pdf",
+        "label": "PHYSICAL PLANT - GROUNDS"
+      }
+    ]
+  },
+  "S63": {
+    "name": "FAML NORTH LAB",
+    "files": [
+      {
+        "filename": "S63.pdf",
+        "label": "FAML NORTH LAB"
+      }
+    ]
+  },
+  "S65": {
+    "name": "CCA LARVICULTURE LAB",
+    "files": [
+      {
+        "filename": "S65.pdf",
+        "label": "CCA LARVICULTURE LAB"
+      }
+    ]
+  },
+  "S66": {
+    "name": "ESTUARINE RESEARCH CENTER",
+    "files": [
+      {
+        "filename": "S66.pdf",
+        "label": "ESTUARINE RESEARCH CENTER"
+      }
+    ]
+  },
+  "S67": {
+    "name": "OILED WILDLIFE FACILITY",
+    "files": [
+      {
+        "filename": "S67.pdf",
+        "label": "OILED WILDLIFE FACILITY"
+      }
+    ]
+  },
+  "S68": {
+    "name": "CCOS MARICULTURE BUILDING",
+    "files": [
+      {
+        "filename": "S68.pdf",
+        "label": "CCOS MARICULTURE BUILDING"
+      }
+    ]
+  },
+  "S69": {
+    "name": "CCOS CENTRAL PLANT",
+    "files": [
+      {
+        "filename": "S69.pdf",
+        "label": "CCOS CENTRAL PLANT"
+      }
+    ]
+  },
+  "S70": {
+    "name": "CENTER COASTAL OCEAN SCIENCE (CCOS)",
+    "files": [
+      {
+        "filename": "S70.pdf",
+        "label": "CENTER COASTAL OCEAN SCIENCE (CCOS)"
+      }
+    ]
+  },
+  "S71": {
+    "name": "FAML SEALAB",
+    "files": [
+      {
+        "filename": "S71.pdf",
+        "label": "FAML SEALAB"
+      }
+    ]
+  },
+  "S74": {
+    "name": "FAML SOUTH GREENHOUSE",
+    "files": [
+      {
+        "filename": "S74.pdf",
+        "label": "FAML SOUTH GREENHOUSE"
+      }
+    ]
+  },
+  "S75": {
+    "name": "FAML LARGE TANK LAB",
+    "files": [
+      {
+        "filename": "S75.pdf",
+        "label": "FAML LARGE TANK LAB"
+      }
+    ]
+  },
+  "S78": {
+    "name": "WILSON COTTAGE NO. 7",
+    "files": [
+      {
+        "filename": "S78.pdf",
+        "label": "WILSON COTTAGE NO. 7"
+      }
+    ]
+  },
+  "S79": {
+    "name": "WILSON COTTAGE NO. 12",
+    "files": [
+      {
+        "filename": "S79.pdf",
+        "label": "WILSON COTTAGE NO. 12"
+      }
+    ]
+  },
+  "S80": {
+    "name": "WILSON COTTAGE NO. 8",
+    "files": [
+      {
+        "filename": "S80.pdf",
+        "label": "WILSON COTTAGE NO. 8"
+      }
+    ]
+  },
+  "S81": {
+    "name": "WILSON COTTAGE NO. 13",
+    "files": [
+      {
+        "filename": "S81.pdf",
+        "label": "WILSON COTTAGE NO. 13"
+      }
+    ]
+  },
+  "S82": {
+    "name": "WILSON COTTAGE NO. 14",
+    "files": [
+      {
+        "filename": "S82.pdf",
+        "label": "WILSON COTTAGE NO. 14"
+      }
+    ]
+  },
+  "S83": {
+    "name": "WILSON COTTAGE NO. 9",
+    "files": [
+      {
+        "filename": "S83.pdf",
+        "label": "WILSON COTTAGE NO. 9"
+      }
+    ]
+  },
+  "S84": {
+    "name": "WILSON COTTAGE NO. 15",
+    "files": [
+      {
+        "filename": "S84.pdf",
+        "label": "WILSON COTTAGE NO. 15"
+      }
+    ]
+  },
+  "S85": {
+    "name": "WILSON COTTAGE NO. 10",
+    "files": [
+      {
+        "filename": "S85.pdf",
+        "label": "WILSON COTTAGE NO. 10"
+      }
+    ]
+  },
+  "S86": {
+    "name": "WILSON COTTAGE NO. 16",
+    "files": [
+      {
+        "filename": "S86.pdf",
+        "label": "WILSON COTTAGE NO. 16"
+      }
+    ]
+  },
+  "S87": {
+    "name": "WILSON COTTAGE NO. 11",
+    "files": [
+      {
+        "filename": "S87.pdf",
+        "label": "WILSON COTTAGE NO. 11"
+      }
+    ]
+  },
+  "S88": {
+    "name": "WILSON COTTAGE NO. 18",
+    "files": [
+      {
+        "filename": "S88.pdf",
+        "label": "WILSON COTTAGE NO. 18"
+      }
+    ]
+  },
+  "S89": {
+    "name": "WILSON COTTAGE NO. 17",
+    "files": [
+      {
+        "filename": "S89.pdf",
+        "label": "WILSON COTTAGE NO. 17"
+      }
+    ]
+  },
+  "S90": {
+    "name": "WILSON COTTAGE NO. 20",
+    "files": [
+      {
+        "filename": "S90.pdf",
+        "label": "WILSON COTTAGE NO. 20"
+      }
+    ]
+  },
+  "S91": {
+    "name": "WILSON COTTAGE NO. 19",
+    "files": [
+      {
+        "filename": "S91.pdf",
+        "label": "WILSON COTTAGE NO. 19"
+      }
+    ]
+  },
+  "S93": {
+    "name": "CP771551 S59 REPLACEMENT",
+    "files": [
+      {
+        "filename": "S93.pdf",
+        "label": "CP771551 S59 REPLACEMENT"
+      }
+    ]
+  },
+  "S94": {
+    "name": "LUND HOUSE",
+    "files": [
+      {
+        "filename": "S94.pdf",
+        "label": "LUND HOUSE"
+      }
+    ]
+  },
+  "SCA": {
+    "name": "FIELD STATION LAB A",
+    "files": [
+      {
+        "filename": "SCA.pdf",
+        "label": "FIELD STATION LAB A"
+      }
+    ]
+  },
+  "SCB": {
+    "name": "FIELD STATION LAB B",
+    "files": [
+      {
+        "filename": "SCB.pdf",
+        "label": "FIELD STATION LAB B"
+      }
+    ]
+  },
+  "SCC": {
+    "name": "FIELD STATION LAB C",
+    "files": [
+      {
+        "filename": "SCC.pdf",
+        "label": "FIELD STATION LAB C"
+      }
+    ]
+  },
+  "SLB": {
+    "name": "SLP - BARN",
+    "files": [
+      {
+        "filename": "SLB.pdf",
+        "label": "SLP - BARN"
+      }
+    ]
+  },
+  "SLG": {
+    "name": "SLP - GREENHOUSE",
+    "files": [
+      {
+        "filename": "SLG.pdf",
+        "label": "SLP - GREENHOUSE"
+      }
+    ]
+  },
+  "SLM": {
+    "name": "SLP - MAINTENANCE BLDG",
+    "files": [
+      {
+        "filename": "SLM.pdf",
+        "label": "SLP - MAINTENANCE BLDG"
+      }
+    ]
+  },
+  "SLR": {
+    "name": "SLP - RANCH HOUSE",
+    "files": [
+      {
+        "filename": "SLR.pdf",
+        "label": "SLP - RANCH HOUSE"
+      }
+    ]
+  },
+  "SPH": {
+    "name": "SLP - PUMP HOUSE",
+    "files": [
+      {
+        "filename": "SPH.pdf",
+        "label": "SLP - PUMP HOUSE"
+      }
+    ]
+  },
+  "WRL": {
+    "name": "LORRAINE F WYER LAB",
+    "files": [
+      {
+        "filename": "WRL.pdf",
+        "label": "LORRAINE F WYER LAB"
+      }
+    ]
+  },
+  "W01": {
+    "name": "SPIES HOUSE-VISITORS CENTER",
+    "files": [
+      {
+        "filename": "W01.pdf",
+        "label": "SPIES HOUSE-VISITORS CENTER"
+      }
+    ]
+  },
+  "W03": {
+    "name": "TERRY STUDENT CENTER",
+    "files": [
+      {
+        "filename": "W03.pdf",
+        "label": "TERRY STUDENT CENTER"
+      }
+    ]
+  },
+  "W04": {
+    "name": "THEATER BARN",
+    "files": [
+      {
+        "filename": "W04.pdf",
+        "label": "THEATER BARN"
+      }
+    ]
+  },
+  "W05": {
+    "name": "MCGREGOR-GRIMM HOUSE",
+    "files": [
+      {
+        "filename": "W05.pdf",
+        "label": "MCGREGOR-GRIMM HOUSE"
+      }
+    ]
+  },
+  "W06": {
+    "name": "HAZELS LONE OAK COTTAGE",
+    "files": [
+      {
+        "filename": "W06.pdf",
+        "label": "HAZELS LONE OAK COTTAGE"
+      }
+    ]
+  },
+  "W07": {
+    "name": "FOUR-SQUARE BARN",
+    "files": [
+      {
+        "filename": "W07.pdf",
+        "label": "FOUR-SQUARE BARN"
+      }
+    ]
+  },
+  "W08": {
+    "name": "LEWIS-WAGNER HOUSE",
+    "files": [
+      {
+        "filename": "W08.pdf",
+        "label": "LEWIS-WAGNER HOUSE"
+      }
+    ]
+  },
+  "W09": {
+    "name": "BIEGEL HOUSE",
+    "files": [
+      {
+        "filename": "W09.pdf",
+        "label": "BIEGEL HOUSE"
+      }
+    ]
+  },
+  "W10": {
+    "name": "BOEKER LOG SMOKEHOUSE",
+    "files": [
+      {
+        "filename": "W10.pdf",
+        "label": "BOEKER LOG SMOKEHOUSE"
+      }
+    ]
+  },
+  "W11": {
+    "name": "KONESCHIK LOG KITCHEN",
+    "files": [
+      {
+        "filename": "W11.pdf",
+        "label": "KONESCHIK LOG KITCHEN"
+      }
+    ]
+  },
+  "W12": {
+    "name": "BARN",
+    "files": [
+      {
+        "filename": "W12.pdf",
+        "label": "BARN"
+      }
+    ]
+  },
+  "W14": {
+    "name": "SHOP BUILDING",
+    "files": [
+      {
+        "filename": "W14.pdf",
+        "label": "SHOP BUILDING"
+      }
+    ]
+  },
+  "W15": {
+    "name": "IMPLEMENT SHED",
+    "files": [
+      {
+        "filename": "W15.pdf",
+        "label": "IMPLEMENT SHED"
+      }
+    ]
+  },
+  "W17": {
+    "name": "WELL HOUSE",
+    "files": [
+      {
+        "filename": "W17.pdf",
+        "label": "WELL HOUSE"
+      }
+    ]
+  },
+  "W18": {
+    "name": "REST ROOM BUILDING",
+    "files": [
+      {
+        "filename": "W18.pdf",
+        "label": "REST ROOM BUILDING"
+      }
+    ]
+  },
+  "W19": {
+    "name": "THE MEADOWS FOUNDATION EDUCATION CT",
+    "files": [
+      {
+        "filename": "W19.pdf",
+        "label": "THE MEADOWS FOUNDATION EDUCATION CT"
+      }
+    ]
+  },
+  "W20": {
+    "name": "THE WINEDALE STORE",
+    "files": [
+      {
+        "filename": "W20.pdf",
+        "label": "THE WINEDALE STORE"
+      }
+    ]
+  },
+  "W22": {
+    "name": "LEE WAGNER HOUSE",
+    "files": [
+      {
+        "filename": "W22.pdf",
+        "label": "LEE WAGNER HOUSE"
+      }
+    ]
+  },
+  "W23": {
+    "name": "WINEDALE SCHOOL",
+    "files": [
+      {
+        "filename": "W23.pdf",
+        "label": "WINEDALE SCHOOL"
+      }
+    ]
+  },
+  "W24": {
+    "name": "THE WINEDALE GAS STATION",
+    "files": [
+      {
+        "filename": "W24.pdf",
+        "label": "THE WINEDALE GAS STATION"
+      }
+    ]
+  },
+  "W25": {
+    "name": "WAGNER STORAGE SHED",
+    "files": [
+      {
+        "filename": "W25.pdf",
+        "label": "WAGNER STORAGE SHED"
+      }
+    ]
+  },
+  "W26": {
+    "name": "WAGNER MECHANICAL SHED",
+    "files": [
+      {
+        "filename": "W26.pdf",
+        "label": "WAGNER MECHANICAL SHED"
+      }
+    ]
+  },
+  "W28": {
+    "name": "ACCESSIBLE THEATER BARN RESTROOM",
+    "files": [
+      {
+        "filename": "W28.pdf",
+        "label": "ACCESSIBLE THEATER BARN RESTROOM"
+      }
+    ]
+  }
+}

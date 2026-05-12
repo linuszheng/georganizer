@@ -10,7 +10,7 @@ import os
 # Load catalog options from courses/catalog
 # Format: "Label": "name", "counts-file", "url"
 catalogs = []
-with open("courses/catalog") as f:
+with open("../courses/catalog") as f:
     for line in f:
         line = line.strip().rstrip(",")
         if not line:
@@ -100,7 +100,7 @@ for i in range(dd1_len):
 
 
 
-with open("courses/{}.csv".format(catalog_name), "w", newline="") as f:
+with open("../courses/{}.csv".format(catalog_name), "w", newline="") as f:
     writer = csv.DictWriter(f, fieldnames=["course", "unique", "days", "hour", "room", "instruction_mode", "instructor", "status", "level"])
     writer.writeheader()
     writer.writerows(info_txts)

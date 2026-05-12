@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flyer Tracker</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; height: 100vh; display: flex; flex-direction: column; }
+
+  /* Top bar */
+  .topbar {
+    background: #1a1a2e; color: #fff; padding: 10px 20px;
+    display: flex; align-items: center; gap: 16px; flex-shrink: 0;
+    font-size: 14px; z-index: 60;
+  }
+  .topbar h1 { font-size: 16px; font-weight: 700; }
+  .topbar a { color: #e94560; text-decoration: none; font-size: 13px; }
+  .topbar a:hover { text-decoration: underline; }
+
+  /* Main layout */
+  .layout { display: flex; flex: 1; min-height: 0; }
+
+  /* Map fills available space */
+  #map { flex: 1; z-index: 0; }
+
+  /* Building panel (right side) */
+  .building-panel {
+    width: 0; min-width: 0; overflow: hidden; background: #fff;
+    display: flex; flex-direction: column; transition: width 0.25s, min-width 0.25s;
+    border-left: 1px solid #ddd; position: relative;
+  }
+  .building-panel.open { width: 65vw; min-width: 500px; }
+  .panel-header {
+    background: #1a1a2e; color: #fff; padding: 12px 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 15px; font-weight: 600; flex-shrink: 0;
+  }
+  .panel-header button {
+    background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; padding: 0 4px;
+  }
+  .panel-body { flex: 1; display: flex; flex-direction: column; padding: 16px; min-height: 0; overflow: hidden; }
+  .panel-controls { flex-shrink: 0; }
+
+  /* Floor selector */
+  .floor-selector {
+    display: flex; gap: 0; border-radius: 6px; overflow: hidden;
+    border: 1px solid #ddd; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .floor-btn {
+    padding: 8px 14px; font-size: 13px; cursor: pointer; border: none;
+    background: #f5f5f5; color: #333; font-weight: 400;
+    white-space: nowrap;
+  }
+  .floor-btn.active { background: #e94560; color: #fff; font-weight: 600; }
+  .floor-btn:hover:not(.active) { background: #eee; }
+
+  /* Floor plan wrapper (scrollable when zoomed) */
+  .floorplan-wrapper {
+    flex: 1; overflow: auto; border: 1px solid #ddd; border-radius: 4px; min-height: 0;
+  }
+  .floorplan-container {
+    position: relative; cursor: crosshair;
+    display: inline-block;
+  }
+  .floorplan-container canvas {
+    display: block;
+  }
+
+  /* Zoom controls */
+  .zoom-controls {
+    display: flex; gap: 4px; margin-bottom: 8px;
+  }
+  .zoom-btn {
+    padding: 4px 12px; font-size: 16px; font-weight: 700; cursor: pointer;
+    border: 1px solid #ddd; border-radius: 4px; background: #f5f5f5; color: #333;
+    line-height: 1;
+  }
+  .zoom-btn:hover { background: #eee; }
+  .zoom-label { font-size: 12px; color: #999; padding: 4px 6px; align-self: center; }
+
+  /* Flyer markers on floor plan */
+  .flyer-marker {
+    position: absolute; width: 12px; height: 12px;
+    background: #e94560; border: 1.5px solid #fff; border-radius: 50%;
+    transform: translate(-50%, -50%); cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3); z-index: 10;
+    transition: transform 0.1s;
+  }
+  .flyer-marker:hover { transform: translate(-50%, -50%) scale(1.4); }
+
+  /* Flyer code picker */
+  .code-picker {
+    position: absolute; background: #fff; border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25); z-index: 20;
+    font-size: 13px; max-height: 200px; overflow-y: auto;
+    min-width: 120px;
+  }
+  .code-picker-item {
+    padding: 6px 12px; cursor: pointer; white-space: nowrap;
+  }
+  .code-picker-item:hover { background: #e94560; color: #fff; }
+  .code-picker-item:first-child { border-radius: 6px 6px 0 0; }
+  .code-picker-item:last-child { border-radius: 0 0 6px 6px; }
+  .code-picker-item.active { background: #1a1a2e; color: #fff; }
+  .code-picker-delete {
+    padding: 6px 12px; cursor: pointer; color: #c62828; border-top: 1px solid #eee;
+    font-weight: 600;
+  }
+  .code-picker-delete:hover { background: #fce4ec; }
+
+  /* Flyer list */
+  .flyer-list { margin-top: 20px; border-top: 1px solid #eee; padding-top: 16px; }
+  .flyer-list h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 10px; }
+  .flyer-item {
+    display: flex; align-items: center; gap: 10px; padding: 8px 10px;
+    border-radius: 6px; cursor: pointer; font-size: 13px;
+  }
+  .flyer-item:hover { background: #f5f5f5; }
+  .flyer-dot { width: 10px; height: 10px; background: #e94560; border-radius: 50%; flex-shrink: 0; }
+  .flyer-item-info { flex: 1; min-width: 0; }
+  .flyer-item-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .flyer-item-date { font-size: 11px; color: #999; }
+
+  /* No plans message */
+  .no-plans { text-align: center; padding: 40px 20px; color: #999; }
+
+  /* Building label styles */
+  .bldg-label {
+    background: none !important; border: none !important;
+    overflow: visible !important; width: 0 !important; height: 0 !important;
+  }
+  .bldg-label span {
+    display: block; position: absolute; transform: translate(-50%, -50%);
+    background: #1a1a2e; color: #fff; font-size: 9px; font-weight: 700;
+    padding: 1px 4px; border-radius: 3px; border: 1px solid #555;
+    white-space: nowrap; text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4); cursor: pointer;
+  }
+  .bldg-label span.has-flyers {
+    background: #e94560; border-color: #c62828;
+  }
+  .bldg-label span:hover {
+    background: #e94560; border-color: #c62828;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Flyer Tracker</h1>
+  <a href="../index.html">Schedule Viewer</a>
+</div>
+
+<div class="layout">
+  <div id="map"></div>
+  <div class="building-panel" id="buildingPanel">
+    <div class="panel-header">
+      <span id="panelTitle">Building</span>
+      <button onclick="closePanel()">&times;</button>
+    </div>
+    <div class="panel-body" id="panelBody">
+    </div>
+  </div>
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+// ============================================================
+// State
+// ============================================================
+let leafletMap = null;
+let buildingMarkers = [];
+let buildingNames = {};
+// flyerData: { buildingAbbr: { pageNum: [ { id, x, y, code } ] } }
+let flyerData = {};
+let flyerCodes = []; // available flyer codes from flyer-files/
+let selectedBuilding = null;
+let selectedPage = 1;
+let currentPdf = null;
+let activePopup = null;
+let zoomLevel = 1;
+
+
+// ============================================================
+// LocalStorage persistence
+// ============================================================
+function loadFlyerData() {
+  return fetch('/api/flyers').then(r => {
+    if (!r.ok) throw new Error('not ok');
+    return r.json();
+  }).then(data => {
+    flyerData = data;
+  }).catch(() => {
+    flyerData = {};
+  });
+}
+
+function saveFlyerData() {
+  fetch('/api/flyers', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(flyerData),
+  }).catch(() => {});
+  updateMarkerStyles();
+}
+
+function genId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+// ============================================================
+// CSV parsing
+// ============================================================
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuotes) {
+      if (c === '"' && line[i + 1] === '"') { current += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { current += c; }
+    } else {
+      if (c === '"') { inQuotes = true; }
+      else if (c === ',') { result.push(current.trim()); current = ''; }
+      else { current += c; }
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+function parseCSV(text) {
+  const lines = text.split('\n');
+  if (lines.length < 2) return [];
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const vals = parseCSVLine(line);
+    const obj = {};
+    headers.forEach((h, idx) => obj[h] = vals[idx] || '');
+    rows.push(obj);
+  }
+  return rows;
+}
+
+// ============================================================
+// Map
+// ============================================================
+function initMap() {
+  leafletMap = L.map('map', { zoomControl: true, zoomSnap: 0.5, zoomDelta: 0.5, wheelPxPerZoomLevel: 120 })
+    .setView([30.2849, -97.7350], 16);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19,
+  }).addTo(leafletMap);
+
+  for (const m of buildingMarkers) {
+    if (!m.label) continue;
+    const icon = L.divIcon({
+      className: 'bldg-label',
+      html: `<span>${m.label}</span>`,
+      iconSize: [0, 0],
+      iconAnchor: [0, 0],
+    });
+    const marker = L.marker([m.x, m.y], { icon, interactive: true }).addTo(leafletMap);
+    const info = buildingNames[m.label];
+    if (info) {
+      marker.bindTooltip(info.name, { direction: 'top', offset: [0, -10] });
+    }
+    m.marker = marker;
+    marker.on('click', (e) => {
+      L.DomEvent.stopPropagation(e);
+      openBuilding(m.label);
+    });
+  }
+
+  updateMarkerStyles();
+}
+
+function updateMarkerStyles() {
+  for (const m of buildingMarkers) {
+    if (!m.label || !m.marker) continue;
+    const icon = m.marker._icon;
+    if (!icon) continue;
+    const span = icon.querySelector('span');
+    if (!span) continue;
+    span.classList.remove('has-flyers');
+    const bData = flyerData[m.label];
+    if (bData) {
+      const total = Object.values(bData).reduce((sum, arr) => sum + arr.length, 0);
+      if (total > 0) span.classList.add('has-flyers');
+    }
+  }
+}
+
+// ============================================================
+// Building panel
+// ============================================================
+function openBuilding(abbr) {
+  selectedBuilding = abbr;
+  selectedPage = 1;
+  zoomLevel = 1;
+  currentPdf = null;
+  closePopup();
+
+  const panel = document.getElementById('buildingPanel');
+  const info = buildingNames[abbr];
+  document.getElementById('panelTitle').textContent = info ? `${abbr} - ${info.name}` : abbr;
+  panel.classList.add('open');
+
+  setTimeout(() => { if (leafletMap) leafletMap.invalidateSize(); }, 300);
+
+  const body = document.getElementById('panelBody');
+  body.innerHTML = '<div class="no-plans">Loading floor plan...</div>';
+
+  const pdfPath = `../floorplans/${abbr}.pdf`;
+  pdfjsLib.getDocument(pdfPath).promise.then(pdf => {
+    currentPdf = pdf;
+    renderPanel();
+  }).catch(() => {
+    body.innerHTML = '<div class="no-plans">No floor plan available for this building.</div>';
+  });
+}
+
+function closePanel() {
+  document.getElementById('buildingPanel').classList.remove('open');
+  selectedBuilding = null;
+  currentPdf = null;
+  closePopup();
+  setTimeout(() => { if (leafletMap) leafletMap.invalidateSize(); }, 300);
+}
+
+function renderPanel() {
+  const body = document.getElementById('panelBody');
+  if (!currentPdf) return;
+
+  const numPages = currentPdf.numPages;
+
+  let html = '';
+
+  // Fixed controls (don't scroll)
+  html += '<div class="panel-controls">';
+
+  if (numPages > 1) {
+    html += '<div class="floor-selector">';
+    for (let p = 1; p <= numPages; p++) {
+      const active = p === selectedPage ? ' active' : '';
+      html += `<button class="floor-btn${active}" onclick="selectPage(${p})">Floor ${p}</button>`;
+    }
+    html += '</div>';
+  }
+
+  html += '<div class="zoom-controls">';
+  html += '<button class="zoom-btn" onclick="zoom(-1)">-</button>';
+  html += '<span class="zoom-label" id="zoomLabel">' + Math.round(zoomLevel * 100) + '%</span>';
+  html += '<button class="zoom-btn" onclick="zoom(1)">+</button>';
+  html += '<button class="zoom-btn" onclick="zoomReset()" style="font-size:12px;font-weight:400;">Reset</button>';
+  html += '</div>';
+
+  html += '</div>'; // end panel-controls
+
+  // Scrollable floor plan
+  html += '<div class="floorplan-wrapper" id="floorplanWrapper">';
+  html += '<div class="floorplan-container" id="floorplanContainer">';
+  html += '<canvas id="pdfCanvas"></canvas>';
+  html += '</div>';
+  html += '</div>';
+
+  // Fixed flyer list (don't scroll)
+  html += '<div class="panel-controls" id="flyerListContainer"></div>';
+
+  body.innerHTML = html;
+
+  // Render the selected page
+  renderPage(selectedPage);
+
+  // Set up click-to-place
+  document.getElementById('floorplanContainer').addEventListener('click', onFloorplanClick);
+
+  renderFlyerList(document.getElementById('flyerListContainer'), selectedBuilding);
+}
+
+function selectPage(pageNum) {
+  selectedPage = pageNum;
+  zoomLevel = 1;
+  closePopup();
+  renderPanel();
+}
+
+function zoom(dir) {
+  const steps = [0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3];
+  const idx = steps.indexOf(zoomLevel);
+  const newIdx = idx === -1 ? 2 : Math.max(0, Math.min(steps.length - 1, idx + dir));
+  zoomLevel = steps[newIdx];
+  applyZoom();
+}
+
+function zoomReset() {
+  zoomLevel = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const label = document.getElementById('zoomLabel');
+  if (label) label.textContent = Math.round(zoomLevel * 100) + '%';
+  closePopup();
+  renderPage(selectedPage);
+}
+
+function renderPage(pageNum) {
+  currentPdf.getPage(pageNum).then(page => {
+    const canvas = document.getElementById('pdfCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    // Fit PDF into a fixed box, then apply zoom
+    const panelBody = document.getElementById('panelBody');
+    const maxW = panelBody.clientWidth - 34;
+    const maxH = window.innerHeight * 0.55;
+    const unscaledViewport = page.getViewport({ scale: 1 });
+    const baseScale = Math.min(maxW / unscaledViewport.width, maxH / unscaledViewport.height);
+    const cssScale = baseScale * zoomLevel;
+    const renderScale = cssScale * 2; // 2x for sharpness
+    const viewport = page.getViewport({ scale: renderScale });
+
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.style.width = (viewport.width / 2) + 'px';
+    canvas.style.height = (viewport.height / 2) + 'px';
+
+    page.render({ canvasContext: ctx, viewport }).promise.then(() => {
+      renderFlyerMarkers();
+    });
+  });
+}
+
+// ============================================================
+// Flyer markers on floor plan
+// ============================================================
+function getFlyers(building, page) {
+  if (!flyerData[building]) flyerData[building] = {};
+  if (!flyerData[building][page]) flyerData[building][page] = [];
+  return flyerData[building][page];
+}
+
+function setFlyers(building, page, flyers) {
+  if (!flyerData[building]) flyerData[building] = {};
+  flyerData[building][page] = flyers;
+  saveFlyerData();
+}
+
+function onFloorplanClick(e) {
+  if (e.target.closest('.flyer-marker') || e.target.closest('.code-picker')) return;
+
+  closePopup();
+
+  const container = document.getElementById('floorplanContainer');
+  const canvas = container.querySelector('canvas');
+  if (!canvas) return;
+
+  // getBoundingClientRect accounts for CSS transform (zoom) already
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width;
+  const y = (e.clientY - rect.top) / rect.height;
+
+  if (x < 0 || x > 1 || y < 0 || y > 1) return;
+
+  showCodePicker(container, x, y, null);
+}
+
+function renderFlyerMarkers() {
+  const container = document.getElementById('floorplanContainer');
+  if (!container) return;
+
+  container.querySelectorAll('.flyer-marker').forEach(el => el.remove());
+
+  const flyers = getFlyers(selectedBuilding, selectedPage);
+  for (const flyer of flyers) {
+    const marker = document.createElement('div');
+    marker.className = 'flyer-marker';
+    marker.style.left = (flyer.x * 100) + '%';
+    marker.style.top = (flyer.y * 100) + '%';
+    marker.title = flyer.code || 'Flyer';
+    marker.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closePopup();
+      showCodePicker(container, flyer.x, flyer.y, flyer);
+    });
+    container.appendChild(marker);
+  }
+}
+
+function showCodePicker(container, x, y, existingFlyer) {
+  closePopup();
+
+  const picker = document.createElement('div');
+  picker.className = 'code-picker';
+  picker.style.left = (x * 100) + '%';
+  picker.style.top = (y * 100) + '%';
+
+  for (const code of flyerCodes) {
+    const item = document.createElement('div');
+    item.className = 'code-picker-item';
+    if (existingFlyer && existingFlyer.code === code) item.classList.add('active');
+    item.textContent = code;
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      pickCode(code, x, y, existingFlyer);
+    });
+    picker.appendChild(item);
+  }
+
+  if (existingFlyer) {
+    const del = document.createElement('div');
+    del.className = 'code-picker-delete';
+    del.textContent = 'Remove';
+    del.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let flyers = getFlyers(selectedBuilding, selectedPage);
+      flyers = flyers.filter(f => f.id !== existingFlyer.id);
+      setFlyers(selectedBuilding, selectedPage, flyers);
+      closePopup();
+      renderFlyerMarkers();
+      renderFlyerList(document.getElementById('flyerListContainer'), selectedBuilding);
+    });
+    picker.appendChild(del);
+  }
+
+  picker.addEventListener('click', (e) => e.stopPropagation());
+  container.appendChild(picker);
+  activePopup = picker;
+}
+
+function pickCode(code, x, y, existingFlyer) {
+  const flyers = getFlyers(selectedBuilding, selectedPage);
+
+  if (existingFlyer) {
+    const flyer = flyers.find(f => f.id === existingFlyer.id);
+    if (flyer) flyer.code = code;
+  } else {
+    flyers.push({ id: genId(), x, y, code });
+  }
+
+  setFlyers(selectedBuilding, selectedPage, flyers);
+  closePopup();
+  renderFlyerMarkers();
+  renderFlyerList(document.getElementById('flyerListContainer'), selectedBuilding);
+}
+
+function closePopup() {
+  if (activePopup) {
+    activePopup.remove();
+    activePopup = null;
+  }
+}
+
+// ============================================================
+// Flyer list below floor plan
+// ============================================================
+function renderFlyerList(container, building) {
+  if (!container) return;
+
+  // Collect flyers across all pages for this building
+  let allFlyers = [];
+  if (flyerData[building]) {
+    for (const [page, flyers] of Object.entries(flyerData[building])) {
+      for (const f of flyers) {
+        allFlyers.push({ ...f, page: parseInt(page) });
+      }
+    }
+  }
+
+  if (allFlyers.length === 0) {
+    container.innerHTML = '<div class="flyer-list"><h3>Flyers</h3><div style="color:#999;font-size:13px;padding:8px 0;">No flyers placed yet. Click on the floor plan to add one.</div></div>';
+    return;
+  }
+
+  allFlyers.sort((a, b) => (a.page - b.page) || (a.code || '').localeCompare(b.code || ''));
+
+  let html = '<div class="flyer-list"><h3>Flyers in this building</h3>';
+  for (const f of allFlyers) {
+    html += `<div class="flyer-item" onclick="jumpToFlyer(${f.page}, '${f.id}')">
+      <div class="flyer-dot"></div>
+      <div class="flyer-item-info">
+        <div class="flyer-item-name">${esc(f.code)}</div>
+        <div class="flyer-item-date">Floor ${f.page}</div>
+      </div>
+    </div>`;
+  }
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function jumpToFlyer(page, flyerId) {
+  if (page !== selectedPage) {
+    selectedPage = page;
+    renderPanel();
+    setTimeout(() => highlightMarker(flyerId), 300);
+  } else {
+    highlightMarker(flyerId);
+  }
+}
+
+function highlightMarker(flyerId) {
+  const container = document.getElementById('floorplanContainer');
+  if (!container) return;
+  const flyers = getFlyers(selectedBuilding, selectedPage);
+  const flyer = flyers.find(f => f.id === flyerId);
+  if (!flyer) return;
+
+  const markers = container.querySelectorAll('.flyer-marker');
+  for (const m of markers) {
+    const mx = parseFloat(m.style.left) / 100;
+    const my = parseFloat(m.style.top) / 100;
+    if (Math.abs(mx - flyer.x) < 0.01 && Math.abs(my - flyer.y) < 0.01) {
+      m.style.transform = 'translate(-50%, -50%) scale(1.8)';
+      m.style.background = '#ffab00';
+      setTimeout(() => {
+        m.style.transform = '';
+        m.style.background = '';
+      }, 600);
+      m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      break;
+    }
+  }
+}
+
+// ============================================================
+// Helpers
+// ============================================================
+function esc(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function escAttr(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ============================================================
+// Init
+// ============================================================
+Promise.all([
+  loadFlyerData(),
+  fetch('../buildings.csv').then(r => r.text()),
+  fetch('../locs.txt').then(r => r.text()).catch(() => ''),
+  // Parse directory listing from python http.server to get flyer codes
+  fetch('../flyer-files/').then(r => r.text()).then(html => {
+    const matches = html.match(/href="([^"]+)"/g) || [];
+    return matches
+      .map(m => m.match(/href="([^"]+)"/)[1])
+      .filter(f => !f.startsWith('/') && !f.startsWith('?') && f !== '../')
+      .map(f => decodeURIComponent(f).replace(/\.[^.]+$/, ''));
+  }).catch(() => []),
+]).then(([_, bldgText, locsText, codes]) => {
+  flyerCodes = codes;
+  const bldgRows = parseCSV(bldgText);
+  for (const row of bldgRows) {
+    const abbr = row.building_abbreviation;
+    if (abbr) {
+      buildingNames[abbr] = { name: row.building_name, campus: row.campus_name };
+    }
+  }
+
+  for (const line of locsText.split('\n')) {
+    const m = line.match(/\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)(?:\s*,\s*(\S+))?/);
+    if (m) buildingMarkers.push({ x: parseFloat(m[1]), y: parseFloat(m[2]), label: m[3] || '' });
+  }
+
+  initMap();
+});
+</script>
+</body>
+</html>

@@ -68,7 +68,7 @@ for campus_abbr, campus_name in zip(campuses_abbreviations, campuses_full):
     for abbr, name in parser.buildings:
         all_buildings.append((campus_abbr, campus_name, abbr, name))
 
-with open("buildings.csv", "w") as f:
+with open("../buildings.csv", "w") as f:
     f.write("campus_abbreviation,campus_name,building_abbreviation,building_name\n")
     for campus_abbr, campus_name, abbr, name in all_buildings:
         # Quote fields that may contain commas
