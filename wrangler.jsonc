@@ -1,12 +1,10 @@
 {
-  "name": "WORKER-NAME",
+  "name": "georganizer",
   "main": "src/index.html",
   "compatibility_date": "2025-02-04",
   "observability": {
     "enabled": true
   },
-
-  // Add this to your wrangler.jsonc
   "kv_namespaces": [
     {
       "binding": "KV",
